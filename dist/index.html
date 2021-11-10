@@ -58,7 +58,36 @@
       </article>
       <!-- end of the trip card -->
     </section>
-
+    <section class="new-trip-form-section">
+      <h2>Tell us where you'd like to go next!</h2>
+      <form class="new-trip-form">
+        <div class="form-input-label">
+          <label for="date">Trip Start Date:</label>
+          <input type="date" name="date" id="date" value="yyyy-mm-dd" min="2021-11-01" max="2024-12-31">
+        </div>
+        <div class="form-input-label">
+          <label for="duration">Length of Trip (days):</label>
+          <input type="number" name="duration" id="duration" min="1" max="30" placeholder="5">
+        </div>
+        <div class="form-input-label">
+          <label for="travelers">Number of Travelers:</label>
+          <input type="number" name="travelers" id="travelers" min="1" max="10" placeholder="1">
+        </div>
+        <div class="form-input-label">
+          <label for="destination-select">Choose a Destination:</label>
+          <select name="destinations" id="destination-select">
+              <option value="">--Please choose an option--</option>
+              <option value="">Destination</option>
+          </select>
+        </div>
+        <div class="form-button-container">
+          <input class="button" type="button" value="Trip Cost Estimate">
+          <input class="button" type="reset" value="Reset">
+          <input class="button" type="button" value="Submit Trip Request">
+        </div>
+      </form>
+      <p class="popup-response"></p>
+    </section>
     <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
     <script src="bundle.js"></script>
   </body>
