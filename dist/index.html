@@ -7,8 +7,87 @@
     <title>Travel Tracker</title>
   </head>
   <body>
-    <img src="./images/turing-logo.png" alt="turing logo">
-
+    <header class="">
+      <div class="greeting-cost-container">
+        <h2 class="welcome-banner">Hello<span>'user's name'</span>, adventure awaits!</h2>
+        <h3 class="total-cost-banner">Total cost of your trips this year: <span>'$ amount'</span></h3>
+      </div>
+      <nav>
+        <div class="navigation">
+          <img class="navigation-icon" src="" alt="">
+          <button class="navigation-button" type="button">Home</button>
+        </div>
+        <div class="navigation">
+          <img class="navigation-icon" src="" alt="">
+          <button class="navigation-button" type="button">New Trip</button>
+        </div>
+        <div class="navigation">
+          <img class="navigation-icon" src="" alt="">
+          <button class="navigation-button" type="button">Log Out</button>
+        </div>
+      </nav>
+    </header>
+    <section class="log-in-section">
+      <h1>Travel Tracker</h1>
+      <form class="log-in-form">
+        <div class="form-input-label">
+          <input type="text" name="username" id="username">
+          <label for="username">Username</label>
+        </div>
+        <div class="form-input-label">
+          <input type="password" name="password" id="password">
+          <label for="password">Password</label>
+        </div>
+        <input class="button" type="button" value="Log In">
+      </form>
+      <p class="popup-response">'error response to user'</p>
+    </section>
+    <section class="home-page-section">
+      <!-- section for glide.js, the following is the template for a 'trip card' -->
+      <article class="trip-card">
+        <div class="destination-status-date-container">
+          <h3>Destination</h3>
+          <p>Status</p>
+          <p>Dates</p>
+        </div>
+        <img class="trip-image" src="" alt="">
+        <div class="message-cost-container">
+          <p>Get ready <span>'switch statement response.'</span></p>
+          <p>Estimated Trip Cost: <span>'$ amount'</span>; add-on agent fee: <span>'$ amount'</span></p>
+        </div>
+      </article>
+      <!-- end of the trip card -->
+    </section>
+    <section class="new-trip-form-section">
+      <h2>Tell us where you'd like to go next!</h2>
+      <form class="new-trip-form">
+        <div class="form-input-label">
+          <label for="date">Trip Start Date:</label>
+          <input type="date" name="date" id="date" value="yyyy-mm-dd" min="2021-11-01" max="2024-12-31">
+        </div>
+        <div class="form-input-label">
+          <label for="duration">Length of Trip (days):</label>
+          <input type="number" name="duration" id="duration" min="1" max="30" placeholder="5">
+        </div>
+        <div class="form-input-label">
+          <label for="travelers">Number of Travelers:</label>
+          <input type="number" name="travelers" id="travelers" min="1" max="10" placeholder="1">
+        </div>
+        <div class="form-input-label">
+          <label for="destination-select">Choose a Destination:</label>
+          <select name="destinations" id="destination-select">
+              <option value="">--Please choose an option--</option>
+              <option value="">Destination</option>
+          </select>
+        </div>
+        <div class="form-button-container">
+          <input class="button" type="button" value="Trip Cost Estimate">
+          <input class="button" type="reset" value="Reset">
+          <input class="button" type="button" value="Submit Trip Request">
+        </div>
+      </form>
+      <p class="popup-response"></p>
+    </section>
     <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
     <script src="bundle.js"></script>
   </body>
