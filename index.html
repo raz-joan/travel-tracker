@@ -7,7 +7,26 @@
     <title>Travel Tracker</title>
   </head>
   <body>
-    <img src="./images/turing-logo.png" alt="turing logo">
+    <header class="">
+      <div class="greeting-cost-container">
+        <h2 class="welcome-banner">Hello<span>'user's name'</span>, adventure awaits!</h2>
+        <h3 class="total-cost-banner">Total cost of your trips this year: <span>'$ amount'</span></h3>
+      </div>
+      <nav>
+        <div class="navigation">
+          <img class="navigation-icon" src="" alt="">
+          <button class="navigation-button" type="button">Home</button>
+        </div>
+        <div class="navigation">
+          <img class="navigation-icon" src="" alt="">
+          <button class="navigation-button" type="button">New Trip</button>
+        </div>
+        <div class="navigation">
+          <img class="navigation-icon" src="" alt="">
+          <button class="navigation-button" type="button">Log Out</button>
+        </div>
+      </nav>
+    </header>
 
     <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
     <script src="bundle.js"></script>
