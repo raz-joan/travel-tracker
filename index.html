@@ -45,7 +45,7 @@
       </form>
       <p class="popup-response">'error response to user'</p>
     </section>
-    <section class="home-page-section">
+    <section class="home-page-section hidden">
       <!-- section for glide.js, the following is the template for a 'trip card' -->
       <article class="trip-card">
         <div class="info-image-container">
@@ -54,7 +54,7 @@
             <p>Status</p>
             <p>Dates</p>
           </div>
-          <img class="trip-image" src="./images/turing-logo.png" alt="turing logo">
+          <img class="trip-image" src="./images/traveling-icon.png" alt="plane over world icon">
         </div>
         <div class="message-cost-container">
           <p>Get ready <span>'switch statement response.'</span></p>
@@ -63,24 +63,27 @@
       </article>
       <!-- end of the trip card -->
     </section>
-    <section class="new-trip-form-section hidden">
-      <h2>Tell us where you'd like to go next!</h2>
+    <section class="new-trip-form-section">
+      <div class="form-banner">
+        <img src="./images/passport-icon.png" alt="passport icon">
+        <h2>Tell us where you'd like to go next!</h2>
+      </div>
       <form class="new-trip-form">
-        <div class="form-input-label">
+        <div>
           <label for="date">Trip Start Date:</label>
-          <input type="date" name="date" id="date" value="yyyy-mm-dd" min="2021-11-01" max="2024-12-31">
+          <input type="date" name="date" class="light-input" id="date" value="yyyy-mm-dd" min="2021-11-01" max="2024-12-31">
         </div>
-        <div class="form-input-label">
+        <div>
           <label for="duration">Length of Trip (days):</label>
           <input type="number" name="duration" id="duration" min="1" max="30" placeholder="5">
         </div>
-        <div class="form-input-label">
+        <div>
           <label for="travelers">Number of Travelers:</label>
           <input type="number" name="travelers" id="travelers" min="1" max="10" placeholder="1">
         </div>
-        <div class="form-input-label">
+        <div>
           <label for="destination-select">Choose a Destination:</label>
-          <select name="destinations" id="destination-select">
+          <select name="destinations" class="light-input" id="destination-select">
               <option value="">--Please choose an option--</option>
               <option value="">Destination</option>
           </select>
@@ -90,8 +93,8 @@
           <input class="button" type="reset" value="Reset">
           <input class="button" type="button" value="Submit Trip Request">
         </div>
+        <p class="popup-response">error message</p>
       </form>
-      <p class="popup-response"></p>
     </section>
     <footer>
       <div class="note">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
