@@ -4,19 +4,19 @@
 @import '_normalize';
 
 body {
-  background: $off-white;
-  font-family: 'Nunito', sans-serif;
+  background-color: $off-white;
   color: $grey;
+  font-family: 'Nunito', sans-serif;
 }
 
 header {
-  background-color: $light-blue;
+  background-color: $grey;
+  color: $off-white;
   @include flex(space-between, flex-end);
-  padding-top: 2.5%;
   padding-bottom: 1%;
+  height: 20vh;
 
   .greeting-cost-container {
-    border: solid red 2px;
     @include flex(flex-end, flex-start, column);
     width: 50%;
     padding-left: 3%;
@@ -24,33 +24,83 @@ header {
       font-size: 40px;
     }
     h3 {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
 
   nav {
-    border: solid blue 2px;
     @include flex(flex-end, center);
+    width: 50%;
     .navigation {
-      @include flex(flex-end, center);
+      background-color: $off-white;
+      @include flex(center, center);
       width: 33%;
       .navigation-button {
-        border-color: $grey;
-        border-width: thin;
-        border-radius: 10%;
-        background-color: $light-blue;
+        border: none;
+        background-color: $off-white;
         color: $grey;
         font-weight: 600;
-        padding: 2.5% 10%;
+        padding: 5% 5%;
         margin: 0;
         cursor: pointer;
+        &:hover {
+          background-color: $grey;
+          color: $off-white;
+        }
       }
     }
     .navigation-icon {
-      width: 20%;
-      margin: 0 5%;
+      padding: 2.5%;
+      width: 16%;
+      margin: 0;
     }
-    width: 50%;
-    padding-right: 3%;
   }
+}
+
+.home-page-section {
+  @include flex(center, center);
+  height: 76vh;
+  .trip-card {
+    border: solid $grey 2px;
+    width: 75%;
+    height: 60vh;
+    .info-image-container {
+      @include flex(space-around, center);
+      height: 45vh;
+      .destination-status-date-container {
+        @include flex(space-around, center, column);
+        height: 60%;
+        width: 40%;
+        h3 {
+          font-size: 40px;
+        }
+        p {
+          font-size: 25px;
+        }
+      }
+      .trip-image {
+        width: 40%;
+      }
+    }
+    .message-cost-container {
+      @include flex(space-around, center, column);
+      height: 15vh;
+      p {
+        font-size: 30px;
+      }
+      .est-cost {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+footer {
+  @include flex(center, center);
+  height: 4vh;
+  font-size: 10px;
+}
+
+.hidden {
+  display: none;
 }

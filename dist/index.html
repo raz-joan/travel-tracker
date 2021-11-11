@@ -27,7 +27,7 @@
         </div>
       </nav>
     </header>
-    <section class="log-in-section">
+    <section class="log-in-section hidden">
       <div class="log-in-banner">
         <h1>Travel Tracker</h1>
         <img class="navigation-icon" src="./images/traveling-icon.png" alt="world and plane icon">
@@ -48,20 +48,22 @@
     <section class="home-page-section">
       <!-- section for glide.js, the following is the template for a 'trip card' -->
       <article class="trip-card">
-        <div class="destination-status-date-container">
-          <h3>Destination</h3>
-          <p>Status</p>
-          <p>Dates</p>
+        <div class="info-image-container">
+          <div class="destination-status-date-container">
+            <h3>Destination</h3>
+            <p>Status</p>
+            <p>Dates</p>
+          </div>
+          <img class="trip-image" src="./images/turing-logo.png" alt="turing logo">
         </div>
-        <img class="trip-image" src="" alt="">
         <div class="message-cost-container">
           <p>Get ready <span>'switch statement response.'</span></p>
-          <p>Estimated Trip Cost: <span>'$ amount'</span>; add-on agent fee: <span>'$ amount'</span></p>
+          <p class="est-cost">Estimated Trip Cost: <span>'$ amount'</span>; add-on agent fee: <span>'$ amount'</span></p>
         </div>
       </article>
       <!-- end of the trip card -->
     </section>
-    <section class="new-trip-form-section">
+    <section class="new-trip-form-section hidden">
       <h2>Tell us where you'd like to go next!</h2>
       <form class="new-trip-form">
         <div class="form-input-label">
@@ -91,6 +93,9 @@
       </form>
       <p class="popup-response"></p>
     </section>
+    <footer>
+      <div class="note">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    </footer>
     <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
     <script src="bundle.js"></script>
   </body>
