@@ -95,6 +95,63 @@ header {
   }
 }
 
+.new-trip-form-section {
+  @include flex(space-around, center, column);
+  height: 76vh;
+  .form-banner {
+    height: 15vh;
+    @include flex(center, center);
+    h2 {
+      font-size: 30px;
+    }
+    img {
+      padding: 1%;
+      width: 10%;
+    }
+  }
+  .new-trip-form {
+    @include flex(space-around, flex-start, column);
+    border: solid $grey 2px;
+    height: 40vh;
+    width: 50%;
+    color: $dark-blue;
+    padding: 2%;
+    input,
+    select {
+      background-color: $off-white;
+      border-color: $dark-blue;
+      border-style: solid;
+      border-width: thin;
+      cursor: pointer;
+    }
+    input::placeholder {
+      color: $light-blue;
+    }
+    .light-input {
+      color: $light-blue;
+    }
+    .form-button-container {
+      @include flex(flex-start, center);
+      .button {
+        border-color: $dark-blue;
+        background-color: $off-white;
+        color: $dark-blue;
+        font-weight: 600;
+        padding: 3% 5%;
+        margin: 0 5%;
+        cursor: pointer;
+        &:hover {
+          background-color: $dark-blue;
+          color: $off-white;
+      }
+      }
+    }
+    .popup-response {
+      color: $orange;
+    }
+  }
+}
+
 footer {
   @include flex(center, center);
   height: 4vh;
