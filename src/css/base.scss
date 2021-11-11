@@ -1,6 +1,56 @@
 /* This is an example of how to import a partial scss file*/
-@import '_variables';
+@use '_variables' as *;
+@use '_mixins' as *;
+@import '_normalize';
 
 body {
-  background: $primary-background;
+  background: $off-white;
+  font-family: 'Nunito', sans-serif;
+  color: $grey;
+}
+
+header {
+  background-color: $light-blue;
+  @include flex(space-between, flex-end);
+  padding-top: 2.5%;
+  padding-bottom: 1%;
+
+  .greeting-cost-container {
+    border: solid red 2px;
+    @include flex(flex-end, flex-start, column);
+    width: 50%;
+    padding-left: 3%;
+    h2 {
+      font-size: 40px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+  }
+
+  nav {
+    border: solid blue 2px;
+    @include flex(flex-end, center);
+    .navigation {
+      @include flex(flex-end, center);
+      width: 33%;
+      .navigation-button {
+        border-color: $grey;
+        border-width: thin;
+        border-radius: 10%;
+        background-color: $light-blue;
+        color: $grey;
+        font-weight: 600;
+        padding: 2.5% 10%;
+        margin: 0;
+        cursor: pointer;
+      }
+    }
+    .navigation-icon {
+      width: 20%;
+      margin: 0 5%;
+    }
+    width: 50%;
+    padding-right: 3%;
+  }
 }
