@@ -4,31 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <title>Travel Tracker</title>
   </head>
   <body>
-    <header class="">
+    <header class="hidden">
       <div class="greeting-cost-container">
-        <h2 class="welcome-banner">Hello<span>'user's name'</span>, adventure awaits!</h2>
-        <h3 class="total-cost-banner">Total cost of your trips this year: <span>'$ amount'</span></h3>
+        <h1 class="welcome-banner">Hello<span>'user's name'</span>!</h1>
+        <h2 class="total-cost-banner">Total cost of your trips this year: <span>'$ amount'</span></h2>
       </div>
       <nav>
         <div class="navigation">
-          <img class="navigation-icon" src="" alt="">
+          <img class="navigation-icon" src="./images/home-icon.png" alt="home icon">
           <button class="navigation-button" type="button">Home</button>
         </div>
         <div class="navigation">
-          <img class="navigation-icon" src="" alt="">
+          <img class="navigation-icon" src="./images/ticket-icon.png" alt="ticket icon">
           <button class="navigation-button" type="button">New Trip</button>
         </div>
         <div class="navigation">
-          <img class="navigation-icon" src="" alt="">
+          <img class="navigation-icon" src="./images/logout-icon.png" alt="sign out icon">
           <button class="navigation-button" type="button">Log Out</button>
         </div>
       </nav>
     </header>
     <section class="log-in-section">
-      <h1>Travel Tracker</h1>
+      <div class="log-in-banner">
+        <h1>Travel Tracker</h1>
+        <img class="navigation-icon" src="./images/traveling-icon.png" alt="world and plane icon">
+      </div>
       <form class="log-in-form">
         <div class="form-input-label">
           <input type="text" name="username" id="username">
@@ -39,43 +45,48 @@
           <label for="password">Password</label>
         </div>
         <input class="button" type="button" value="Log In">
+        <p class="popup-response">'error response to user'</p>
       </form>
-      <p class="popup-response">'error response to user'</p>
     </section>
-    <section class="home-page-section">
+    <section class="home-page-section hidden">
       <!-- section for glide.js, the following is the template for a 'trip card' -->
       <article class="trip-card">
-        <div class="destination-status-date-container">
-          <h3>Destination</h3>
-          <p>Status</p>
-          <p>Dates</p>
+        <div class="info-image-container">
+          <div class="destination-status-date-container">
+            <h3>Destination</h3>
+            <p>Status</p>
+            <p>Dates</p>
+          </div>
+          <img class="trip-image" src="./images/traveling-icon.png" alt="plane over world icon">
         </div>
-        <img class="trip-image" src="" alt="">
         <div class="message-cost-container">
           <p>Get ready <span>'switch statement response.'</span></p>
-          <p>Estimated Trip Cost: <span>'$ amount'</span>; add-on agent fee: <span>'$ amount'</span></p>
+          <p class="est-cost">Estimated Trip Cost: <span>'$ amount'</span>; add-on agent fee: <span>'$ amount'</span></p>
         </div>
       </article>
       <!-- end of the trip card -->
     </section>
-    <section class="new-trip-form-section">
-      <h2>Tell us where you'd like to go next!</h2>
+    <section class="new-trip-form-section hidden">
+      <div class="form-banner">
+        <img src="./images/passport-icon.png" alt="passport icon">
+        <h2>Tell us where you'd like to go next!</h2>
+      </div>
       <form class="new-trip-form">
-        <div class="form-input-label">
+        <div>
           <label for="date">Trip Start Date:</label>
-          <input type="date" name="date" id="date" value="yyyy-mm-dd" min="2021-11-01" max="2024-12-31">
+          <input type="date" name="date" class="light-input" id="date" value="yyyy-mm-dd" min="2021-11-01" max="2024-12-31">
         </div>
-        <div class="form-input-label">
+        <div>
           <label for="duration">Length of Trip (days):</label>
           <input type="number" name="duration" id="duration" min="1" max="30" placeholder="5">
         </div>
-        <div class="form-input-label">
+        <div>
           <label for="travelers">Number of Travelers:</label>
           <input type="number" name="travelers" id="travelers" min="1" max="10" placeholder="1">
         </div>
-        <div class="form-input-label">
+        <div>
           <label for="destination-select">Choose a Destination:</label>
-          <select name="destinations" id="destination-select">
+          <select name="destinations" class="light-input" id="destination-select">
               <option value="">--Please choose an option--</option>
               <option value="">Destination</option>
           </select>
@@ -85,9 +96,12 @@
           <input class="button" type="reset" value="Reset">
           <input class="button" type="button" value="Submit Trip Request">
         </div>
+        <p class="popup-response">error message</p>
       </form>
-      <p class="popup-response"></p>
     </section>
+    <footer>
+      <div class="note">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    </footer>
     <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
     <script src="bundle.js"></script>
   </body>

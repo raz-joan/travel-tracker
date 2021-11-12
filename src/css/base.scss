@@ -1,6 +1,414 @@
-/* This is an example of how to import a partial scss file*/
-@import '_variables';
+// this file is organized by 'page' sections and is nested throughout
+@use '_variables' as *;
+@use '_mixins' as *;
+@import '_normalize';
 
 body {
-  background: $primary-background;
+  background-color: $off-white;
+  color: $grey;
+  font-family: 'Nunito', sans-serif;
+  font-size: $small;
+}
+
+// the following is the opening page: the log in section
+.log-in-section {
+  @include flex(center, center, column);
+  height: 96vh;
+
+  .log-in-banner {
+    @include flex(center, center);
+    padding-bottom: 2%;
+
+    h1 {
+      font-size: $x-large;
+      font-weight: bold;
+    }
+
+    .navigation-icon {
+      width: 10%;
+      padding: 1%;
+    }
+  }
+
+  .log-in-form {
+    @include flex(space-evenly, center, column);
+    border: solid $grey 2px;
+    background-color: $off-white;
+    height: 25vh;
+    width: 30%;
+    color: $dark-blue;
+    padding: 2%;
+
+    input {
+      background-color: $white;
+      border-color: $dark-blue;
+      border-style: solid;
+      border-width: thin;
+      cursor: pointer;
+    }
+
+    input::placeholder {
+      color: $light-blue;
+    }
+
+    .button {
+      border-color: $dark-blue;
+      background-color: $off-white;
+      color: $dark-blue;
+      font-weight: bold;
+      padding: 2% 4%;
+      margin: 0 5%;
+      cursor: pointer;
+      &:hover {
+        background-color: $dark-blue;
+        color: $off-white;
+      }
+    }
+
+    .popup-response {
+      color: $orange;
+    }
+  }
+}
+
+// the following is the header for the other two sections: main-page and new-trip
+header {
+  background-color: $grey;
+  color: $off-white;
+  @include flex(space-between, flex-end);
+  padding-bottom: 1%;
+  height: 20vh;
+
+  .greeting-cost-container {
+    @include flex(flex-end, flex-start, column);
+    width: 50%;
+    padding-left: 3%;
+
+    h1 {
+      font-size: $x-large;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: $medium;
+    }
+  }
+
+  nav {
+    @include flex(flex-end, center);
+    width: 50%;
+
+    .navigation {
+      background-color: $off-white;
+      @include flex(center, center);
+      width: 33%;
+
+      .navigation-button {
+        border: none;
+        background-color: $off-white;
+        color: $grey;
+        font-weight: bold;
+        padding: 5% 5%;
+        margin: 0;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $grey;
+          color: $off-white;
+        }
+      }
+    }
+
+    .navigation-icon {
+      padding: 2.5%;
+      width: 16%;
+      margin: 0;
+    }
+  }
+}
+
+// the following is the home page view (has the above header)
+.home-page-section {
+  @include flex(center, center);
+  height: 75vh;
+
+  .trip-card {
+    border: solid $grey 2px;
+    width: 75%;
+    height: 60vh;
+
+    .info-image-container {
+      @include flex(space-around, center);
+      height: 45vh;
+
+      .destination-status-date-container {
+        @include flex(space-around, center, column);
+        height: 60%;
+        width: 40%;
+
+        h3 {
+          font-size: $x-large;
+          font-weight: bold;
+        }
+
+        p {
+          font-size: $large;
+        }
+      }
+
+      .trip-image {
+        width: 40%;
+      }
+    }
+
+    .message-cost-container {
+      @include flex(space-around, center, column);
+      height: 15vh;
+
+      p {
+        font-size: $large;
+      }
+
+      .est-cost {
+        font-size: $medium;
+      }
+    }
+  }
+}
+
+// the following is the new trip form page view (has the above header)
+.new-trip-form-section {
+  @include flex(space-around, center, column);
+  height: 76vh;
+
+  .form-banner {
+    height: 15vh;
+    @include flex(center, center);
+
+    h2 {
+      font-size: $large;
+    }
+
+    img {
+      padding: 1%;
+      width: 10%;
+    }
+  }
+
+  .new-trip-form {
+    @include flex(space-around, flex-start, column);
+    border: solid $grey 2px;
+    height: 40vh;
+    width: 50%;
+    color: $dark-blue;
+    padding: 2%;
+
+    input,
+    select {
+      background-color: $white;
+      border-color: $dark-blue;
+      border-style: solid;
+      border-width: thin;
+      cursor: pointer;
+    }
+
+    input::placeholder {
+      color: $light-blue;
+    }
+
+    .light-input {
+      color: $light-blue;
+    }
+
+    .form-button-container {
+      @include flex(space-between, center, row);
+
+      .button {
+        border-color: $dark-blue;
+        background-color: $off-white;
+        color: $dark-blue;
+        font-weight: bold;
+        padding: 3% 5%;
+        margin: 0 5%;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $dark-blue;
+          color: $off-white;
+        }
+      }
+    }
+
+    .popup-response {
+      color: $orange;
+    }
+  }
+}
+
+// the following is the footer on every page view
+footer {
+  @include flex(center, center);
+  height: 4vh;
+  font-size: $x-small;
+}
+
+.hidden {
+  display: none;
+}
+
+// the following are media queries for responsive design
+@media screen  and (min-width: 600px) and (max-width: 1000px) {
+  header {
+    nav {
+      @include flex(flex-end, flex-end, column);
+      .navigation {
+        width: 50%;
+      }
+    }
+  }
+  .log-in-section {
+    .log-in-form {
+      width: 50%;
+    }
+  }
+  .new-trip-form-section {
+    .new-trip-form {
+      width: 75%;
+    }
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 599px) {
+  header {
+    @include flex(space-evenly, center, column);
+    .greeting-cost-container {
+      @include flex(center, center, column);
+      width: 100%;
+      padding-left: 0;
+    }
+    nav {
+      @include flex(center, center);
+      width: 100%;
+      .navigation {
+        width: 30%;
+      }
+    }
+  }
+  .home-page-section {
+    .trip-card {
+      .info-image-container {
+        @include flex(center, center, column-reverse);
+        height: 55%;
+        .destination-status-date-container {
+          @include flex(center, center, column);
+        }
+      }
+      .message-cost-container {
+        @include flex(space-evenly, center, column);
+        height: 45%;
+      }
+    }
+  }
+  .log-in-section {
+    .log-in-form {
+      width: 50%;
+    }
+  }
+  .new-trip-form-section {
+    .form-banner {
+      @include flex(center, center, column);
+      img {
+        width: 15%;
+      }
+    }
+    .new-trip-form {
+      width: 75%;
+      .form-button-container {
+        @include flex(space-evenly, flex-start, column);
+        .button {
+          margin: 1% 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 374px) {
+  header {
+    @include flex(space-evenly, center, column);
+    height: 33vh;
+    .greeting-cost-container {
+      @include flex(center, center, column);
+      width: 100%;
+      padding-left: 0;
+      h1 {
+        font-size: $large;
+      }
+    }
+    nav {
+      @include flex(center, center, column);
+      width: 100%;
+      .navigation {
+        width: 40%;
+      }
+    }
+  }
+  .home-page-section {
+    height: 63vh;
+    .trip-card {
+      .info-image-container {
+        @include flex(center, center, column-reverse);
+        .destination-status-date-container {
+          @include flex(center, center, column);
+          h3 {
+            font-size: $large;
+            font-weight: bold;
+          }
+
+          p {
+            font-size: $medium;
+          }
+        }
+      }
+      .message-cost-container {
+        @include flex(flex-end, center, column);
+
+        p {
+          font-size: $medium;
+        }
+      }
+    }
+  }
+  .log-in-section {
+    .log-in-banner {
+      @include flex(center, center, column);
+      .navigation-icon {
+        width: 20%;
+      }
+    }
+    .log-in-form {
+      width: 75%;
+    }
+  }
+  .new-trip-form-section {
+    height: 63vh;
+    .form-banner {
+      @include flex(center, center, column);
+      img {
+        width: 15%;
+      }
+      h2 {
+        font-size: $medium;
+      }
+    }
+    .new-trip-form {
+      width: 75%;
+      .form-button-container {
+        @include flex(space-evenly, flex-start, column);
+        .button {
+          margin: 1% 0;
+        }
+      }
+    }
+  }
 }
