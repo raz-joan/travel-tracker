@@ -7,6 +7,67 @@ body {
   background-color: $off-white;
   color: $grey;
   font-family: 'Nunito', sans-serif;
+  font-size: $small;
+}
+
+.log-in-section {
+  @include flex(center, center, column);
+  height: 96vh;
+
+  .log-in-banner {
+    @include flex(center, center);
+    padding-bottom: 2%;
+
+    h1 {
+      font-size: $x-large;
+      font-weight: bold;
+    }
+
+    .navigation-icon {
+      width: 10%;
+      padding: 1%;
+    }
+  }
+
+  .log-in-form {
+    @include flex(space-evenly, center, column);
+    border: solid $grey 2px;
+    background-color: $off-white;
+    height: 25vh;
+    width: 30%;
+    color: $dark-blue;
+    padding: 2%;
+
+    input {
+      background-color: $white;
+      border-color: $dark-blue;
+      border-style: solid;
+      border-width: thin;
+      cursor: pointer;
+    }
+
+    input::placeholder {
+      color: $light-blue;
+    }
+
+    .button {
+      border-color: $dark-blue;
+      background-color: $off-white;
+      color: $dark-blue;
+      font-weight: bold;
+      padding: 2% 4%;
+      margin: 0 5%;
+      cursor: pointer;
+      &:hover {
+        background-color: $dark-blue;
+        color: $off-white;
+      }
+    }
+
+    .popup-response {
+      color: $orange;
+    }
+  }
 }
 
 header {
@@ -20,35 +81,42 @@ header {
     @include flex(flex-end, flex-start, column);
     width: 50%;
     padding-left: 3%;
-    h2 {
-      font-size: 40px;
+
+    h1 {
+      font-size: $x-large;
+      font-weight: bold;
     }
-    h3 {
-      font-size: 18px;
+
+    h2 {
+      font-size: $medium;
     }
   }
 
   nav {
     @include flex(flex-end, center);
     width: 50%;
+
     .navigation {
       background-color: $off-white;
       @include flex(center, center);
       width: 33%;
+
       .navigation-button {
         border: none;
         background-color: $off-white;
         color: $grey;
-        font-weight: 600;
+        font-weight: bold;
         padding: 5% 5%;
         margin: 0;
         cursor: pointer;
+
         &:hover {
           background-color: $grey;
           color: $off-white;
         }
       }
     }
+
     .navigation-icon {
       padding: 2.5%;
       width: 16%;
@@ -59,37 +127,47 @@ header {
 
 .home-page-section {
   @include flex(center, center);
-  height: 76vh;
+  height: 75vh;
+
   .trip-card {
     border: solid $grey 2px;
     width: 75%;
     height: 60vh;
+
     .info-image-container {
       @include flex(space-around, center);
       height: 45vh;
+
       .destination-status-date-container {
         @include flex(space-around, center, column);
         height: 60%;
         width: 40%;
+
         h3 {
-          font-size: 40px;
+          font-size: $x-large;
+          font-weight: bold;
         }
+
         p {
-          font-size: 25px;
+          font-size: $large;
         }
       }
+
       .trip-image {
         width: 40%;
       }
     }
+
     .message-cost-container {
       @include flex(space-around, center, column);
       height: 15vh;
+
       p {
-        font-size: 30px;
+        font-size: $large;
       }
+
       .est-cost {
-        font-size: 20px;
+        font-size: $medium;
       }
     }
   }
@@ -98,17 +176,21 @@ header {
 .new-trip-form-section {
   @include flex(space-around, center, column);
   height: 76vh;
+
   .form-banner {
     height: 15vh;
     @include flex(center, center);
+
     h2 {
-      font-size: 30px;
+      font-size: $large;
     }
+
     img {
       padding: 1%;
       width: 10%;
     }
   }
+
   .new-trip-form {
     @include flex(space-around, flex-start, column);
     border: solid $grey 2px;
@@ -116,36 +198,43 @@ header {
     width: 50%;
     color: $dark-blue;
     padding: 2%;
+
     input,
     select {
-      background-color: $off-white;
+      background-color: $white;
       border-color: $dark-blue;
       border-style: solid;
       border-width: thin;
       cursor: pointer;
     }
+
     input::placeholder {
       color: $light-blue;
     }
+
     .light-input {
       color: $light-blue;
     }
+
     .form-button-container {
-      @include flex(flex-start, center);
+      @include flex(space-between, center, row);
+
       .button {
         border-color: $dark-blue;
         background-color: $off-white;
         color: $dark-blue;
-        font-weight: 600;
+        font-weight: bold;
         padding: 3% 5%;
         margin: 0 5%;
         cursor: pointer;
+
         &:hover {
           background-color: $dark-blue;
           color: $off-white;
-      }
+        }
       }
     }
+
     .popup-response {
       color: $orange;
     }
@@ -155,7 +244,7 @@ header {
 footer {
   @include flex(center, center);
   height: 4vh;
-  font-size: 10px;
+  font-size: $x-small;
 }
 
 .hidden {
