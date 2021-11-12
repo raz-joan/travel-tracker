@@ -250,3 +250,133 @@ footer {
 .hidden {
   display: none;
 }
+
+
+// ~~~ media queries ~~~
+@media screen  and (min-width: 600px) and (max-width: 1000px) {
+  header {
+    nav {
+      @include flex(flex-end, flex-end, column);
+      .navigation {
+        width: 50%;
+      }
+    }
+  }
+  .log-in-section {
+    .log-in-form {
+      width: 50%;
+    }
+  }
+  .new-trip-form-section {
+    .new-trip-form {
+      width: 75%;
+    }
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 599px) {
+  header {
+    @include flex(space-evenly, center, column);
+    .greeting-cost-container {
+      @include flex(center, center, column);
+      width: 100%;
+      padding-left: 0;
+    }
+    nav {
+      @include flex(center, center);
+      width: 100%;
+      .navigation {
+        width: 30%;
+      }
+    }
+  }
+  .home-page-section {
+    .trip-card {
+      .info-image-container {
+        @include flex(center, center, column-reverse);
+        .destination-status-date-container {
+          @include flex(center, center, column);
+        }
+      }
+      .message-cost-container {
+        @include flex(flex-end, center, column);
+      }
+    }
+  }
+  .log-in-section {
+    .log-in-form {
+      width: 50%;
+    }
+  }
+  .new-trip-form-section {
+    .new-trip-form {
+      width: 75%;
+      .form-button-container {
+        @include flex(space-evenly, flex-start, column);
+        .button {
+          margin: 1% 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 374px) {
+  header {
+    @include flex(space-evenly, center, column);
+    height: 30vh;
+    .greeting-cost-container {
+      @include flex(center, center, column);
+      width: 100%;
+      padding-left: 0;
+    }
+    nav {
+      @include flex(center, center, column);
+      width: 100%;
+      .navigation {
+        width: 40%;
+      }
+    }
+  }
+  .home-page-section {
+    .trip-card {
+      .info-image-container {
+        @include flex(center, center, column-reverse);
+        .destination-status-date-container {
+          @include flex(center, center, column);
+        }
+      }
+      .message-cost-container {
+        @include flex(flex-end, center, column);
+      }
+    }
+  }
+  .log-in-section {
+    .log-in-banner {
+      @include flex(center, center, column);
+      .navigation-icon {
+        width: 20%;
+      }
+    }
+    .log-in-form {
+      width: 75%;
+    }
+  }
+  .new-trip-form-section {
+    .form-banner {
+      @include flex(center, center, column);
+      img {
+        width: 20%;
+      }
+    }
+    .new-trip-form {
+      width: 75%;
+      .form-button-container {
+        @include flex(space-evenly, flex-start, column);
+        .button {
+          margin: 1% 0;
+        }
+      }
+    }
+  }
+}
