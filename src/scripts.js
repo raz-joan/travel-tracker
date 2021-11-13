@@ -1,15 +1,18 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
+// This is the JavaScript entry file
 
-// An example of how you tell webpack to use a CSS (SCSS) file
+// imports for webpack
 import './css/base.scss';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/passport-icon.png';
 import './images/home-icon.png';
 import './images/ticket-icon.png';
 import './images/logout-icon.png';
 import './images/traveling-icon.png';
 
+import apiCalls from './api-calls';
 
-// console.log('This is the JavaScript entry file - your code begins here.');
+// globals
+let userID = 3;
+
+// functions, eventListeners, etc ...
+apiCalls.getAllData().then(data => console.log(data));
