@@ -48,16 +48,17 @@ describe('UserRepository', () => {
 
   it('should determine and store an updated message', () => {
     userRepo.determineMessage();
-    expect(userRepo.message).to.equal('for a relaxing time.');
-  });
-
-  it('should calculate and update the total yearly cost', () => {
-    userRepo.calculateTotalYearCost();
-    expect(userRepo.totalYearCost).to.equal(7359);
+    expect(userRepo.message).to.equal(' for a relaxing time.');
   });
 
   it('should be able to create new Trip instances', () => {
     userRepo.createTrips();
     expect(userRepo.updatedTrips).to.deep.equal([trip1, trip2, trip3]);
+  });
+
+  it('should calculate and update the total yearly cost', () => {
+    userRepo.createTrips();
+    userRepo.calculateTotalYearCost();
+    expect(userRepo.totalYearCost).to.equal(7359);
   });
 });
