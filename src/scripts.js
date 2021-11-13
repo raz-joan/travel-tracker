@@ -1,15 +1,28 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
+// This is the JavaScript entry file
 
-// An example of how you tell webpack to use a CSS (SCSS) file
+// imports for webpack
 import './css/base.scss';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/passport-icon.png';
 import './images/home-icon.png';
 import './images/ticket-icon.png';
 import './images/logout-icon.png';
 import './images/traveling-icon.png';
 
+import apiCalls from './api-calls';
+import UserRepository from './UserRepository';
 
-// console.log('This is the JavaScript entry file - your code begins here.');
+// globals
+let userID = 17; // eventually this will come in from the log in page
+let user;
+
+// functions, eventListeners, etc ...
+apiCalls.getAllData()
+  .then(data => {
+    let userObj = data[0].find(entry => entry.id === userID);
+    user = new UserRepository(userObj, data[1], data[2]);
+    user.createTrips();
+    user.determineMessage();
+    user.calculateTotalYearCost();
+    console.log(user); // fetch and methods are working!
+  });

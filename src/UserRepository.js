@@ -40,8 +40,10 @@ class UserRepository {
 
   createTrips() {
     this.trips.forEach((trip) => {
-      let newTrip = new Trip(trip, this.destinations);
-      this.updatedTrips.push(newTrip);
+      if (trip.userID === this.user.id) {
+        let newTrip = new Trip(trip, this.destinations);
+        this.updatedTrips.push(newTrip);
+      }
     });
   }
 

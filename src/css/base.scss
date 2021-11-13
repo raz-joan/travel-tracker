@@ -9,6 +9,21 @@ body {
   font-family: 'Nunito', sans-serif;
   font-size: $small;
 }
+// error modal for error handling with fetchAPIs
+.error-modal {
+  position: fixed;
+  background-color: rgba(0, 0, 0, .7);
+  width:100vw;
+  height: 100vh;
+  z-index: 2;
+  @include flex(center, center);
+}
+
+.error-message {
+  font-size: $large;
+  color: $orange;
+  margin: 10px;
+}
 
 // the following is the opening page: the log in section
 .log-in-section {
