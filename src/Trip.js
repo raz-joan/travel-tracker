@@ -5,18 +5,22 @@ class Trip {
     this.date = trip.date;
     this.duration = trip.duration;
     this.travelers = trip.travelers;
-    this.destination = destinations.find(entry => entry.id === trip.destinationID).destination;
+    this.destination = destinations
+      .find(entry => entry.id === trip.destinationID).destination;
     this.img = destinations.find(entry => entry.id === trip.destinationID).image;
     this.alt = destinations.find(entry => entry.id === trip.destinationID).alt;
-    this.estimatedLodgingCostPerDay = destinations.find(entry => entry.id === trip.destinationID).estimatedLodgingCostPerDay;
-    this.estimatedFlightCostPerPerson = destinations.find(entry => entry.id === trip.destinationID).estimatedFlightCostPerPerson;
+    this.estimatedLodgingCostPerDay = destinations
+      .find(entry => entry.id === trip.destinationID).estimatedLodgingCostPerDay;
+    this.estimatedFlightCostPerPerson = destinations
+      .find(entry => entry.id === trip.destinationID).estimatedFlightCostPerPerson;
     this.estCost = 0;
     this.agentPercent = 0;
     this.totalCost = 0;
   }
 
   calculateEstCost() {
-    this.estCost = (this.duration * this.estimatedLodgingCostPerDay) + (this.travelers * this.estimatedFlightCostPerPerson);
+    this.estCost = (this.duration * this.estimatedLodgingCostPerDay)
+      + (this.travelers * this.estimatedFlightCostPerPerson);
     return this.estCost;
   }
 
