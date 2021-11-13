@@ -100,12 +100,6 @@ describe('Trip', () => {
     expect(trip3.totalCost).to.equal(0);
   });
 
-  it('should store a default trip end date of "yyyy/mm/dd"', () => {
-    expect(trip1.endDate).to.equal("yyyy/mm/dd");
-    expect(trip2.endDate).to.equal("yyyy/mm/dd");
-    expect(trip3.endDate).to.equal("yyyy/mm/dd");
-  });
-
   it('should be able to calculate and update the estimated cost', () => {
     trip1.calculateEstCost();
     trip2.calculateEstCost();
@@ -116,6 +110,9 @@ describe('Trip', () => {
   });
 
   it('should be able to calculate and update the agent percent', () => {
+    trip1.calculateEstCost();
+    trip2.calculateEstCost();
+    trip3.calculateEstCost();
     trip1.calculateAgentPercent();
     trip2.calculateAgentPercent();
     trip3.calculateAgentPercent();
@@ -125,6 +122,12 @@ describe('Trip', () => {
   });
 
   it('should be able to calculate and update the total cost', () => {
+    trip1.calculateEstCost();
+    trip2.calculateEstCost();
+    trip3.calculateEstCost();
+    trip1.calculateAgentPercent();
+    trip2.calculateAgentPercent();
+    trip3.calculateAgentPercent();
     trip1.calculateTotalCost();
     trip2.calculateTotalCost();
     trip3.calculateTotalCost();
@@ -133,12 +136,4 @@ describe('Trip', () => {
     expect(trip3.totalCost).to.equal(1408);
   });
 
-  it('should be able to calculate the trip end date', () => {
-    trip1.calculateEndDate();
-    trip2.calculateEndDate();
-    trip3.calculateEndDate();
-    expect(trip1.endDate).to.equal("2019/10/29");
-    expect(trip2.endDate).to.equal("2020/02/17");
-    expect(trip3.endDate).to.equal("2022/07/22");
-  });
 });
