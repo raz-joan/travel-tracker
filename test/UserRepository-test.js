@@ -42,23 +42,33 @@ describe('UserRepository', () => {
     expect(userRepo.totalYearCost).to.equal(0);
   });
 
+  it('should store a default all time total cost of 0', () => {
+    expect(userRepo.totalAllTimeCost).to.equal(0);
+  });
+
   it('should store an updated trips array that is default empty', () => {
     expect(userRepo.updatedTrips).to.deep.equal([]);
   });
 
   it('should determine and store an updated message', () => {
     userRepo.determineMessage();
-    expect(userRepo.message).to.equal(' for a relaxing time.');
+    expect(userRepo.message).to.equal('relaxing experiences.');
   });
 
-  it('should be able to create new Trip instances', () => {
+  it('should be able to create and sort new Trip instances', () => {
     userRepo.createTrips();
-    expect(userRepo.updatedTrips).to.deep.equal([trip1, trip2, trip3]);
+    expect(userRepo.updatedTrips).to.deep.equal([trip3, trip2, trip1]);
   });
 
   it('should calculate and update the total yearly cost', () => {
     userRepo.createTrips();
     userRepo.calculateTotalYearCost();
-    expect(userRepo.totalYearCost).to.equal(7359);
+    expect(userRepo.totalYearCost).to.equal(1408);
+  });
+
+  it('should calculate and update the total all time cost', () => {
+    userRepo.createTrips();
+    userRepo.calculateAllTimeCost();
+    expect(userRepo.totalAllTimeCost).to.equal(7359);
   });
 });
