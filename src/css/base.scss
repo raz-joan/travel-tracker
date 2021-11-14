@@ -154,6 +154,7 @@ header {
     border: solid $grey 2px;
     width: 75%;
     height: 60vh;
+    margin-left: 12.5%;
 
     .info-image-container {
       @include flex(space-around, center);
@@ -272,6 +273,11 @@ footer {
 
 .hidden {
   display: none;
+}
+
+.glide__arrow {
+  background-color: $grey;
+  opacity: 0.5;
 }
 
 // the following are media queries for responsive design

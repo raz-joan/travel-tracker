@@ -1,9 +1,11 @@
-// import Glide from '@glidejs/glide';
 import Glide, { Controls } from '@glidejs/glide/dist/glide.modular.esm';
 
 // query header elements:
 const welcomeBanner = document.querySelector('#welcomeBanner');
 const totalCostBanner = document.querySelector('#totalCostBanner');
+
+// query glide elements:
+const glideSlides = document.querySelector('#glideSlides');
 
 // number formatter
 var formatter = new Intl.NumberFormat('en-US', {
@@ -22,28 +24,31 @@ let domUpdates = {
   },
 
   populateCarousel(userRepo) {
+    userRepo.updatedTrips.forEach((trip) => {
+      let tripEstCost = formatter.format(trip.estCost);
+      let tripAgentPercent = formatter.format(trip.agentPercent);
+      glideSlides.innerHTML += `
+        <li class="glide__slide">
+          <article class="trip-card">
+            <div class="info-image-container">
+              <div class="destination-status-date-container">
+                <h3>${trip.destination}</h3>
+                <p>${trip.date}</p>
+                <p>This trip is: ${trip.status}.</p>
+              </div>
+              <img class="trip-image" src=${trip.img} alt=${trip.alt}>
+            </div>
+            <div class="message-cost-container">
+              <p>Get ready${userRepo.message}</p>
+              <p class="est-cost">Estimated Trip Cost: ${tripEstCost}, plus a 10% agent fee: ${tripAgentPercent}</p>
+            </div>
+          </article>
+        </li>`;
+    });
     const glideObj = {
       type: 'carousel'
     };
     new Glide('.glide', glideObj).mount({ Controls });
-    // new Glide('.glide').mount();
-    // look at the updatedTrip array
-    // for each dynamically add an article into the carousel container
-    // update: destination, status, date(s), img/alt, message, and cost
-      // <article class="trip-card">
-      //   <div class="info-image-container">
-      //     <div class="destination-status-date-container">
-      //       <h3>Destination</h3>
-      //       <p>Status</p>
-      //       <p>Dates</p>
-      //     </div>
-      //     <img class="trip-image" src="./images/traveling-icon.png" alt="plane over world icon">
-      //   </div>
-      //   <div class="message-cost-container">
-      //     <p>Get ready <span>'switch statement response.'</span></p>
-      //     <p class="est-cost">Estimated Trip Cost: <span>'$ amount'</span>; add-on agent fee: <span>'$ amount'</span></p>
-      //   </div>
-      // </article>
   }
 };
 
