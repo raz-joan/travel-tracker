@@ -31,11 +31,16 @@ apiCalls.getAllData()
   .then(data => {
     let userObj = data[0].find(entry => entry.id === userID);
     user = new UserRepository(userObj, data[1], data[2]);
-    user.createTrips();
-    user.determineMessage();
-    user.calculateTotalYearCost();
-    user.calculateAllTimeCost();
-    domUpdates.updateHeader(user);
-    domUpdates.populateCarousel(user);
+    setUpUserAccount(user);
     console.log(user); // NEED TO REMOVE THIS
   });
+
+  function setUpUserAccount(userRepo) {
+    userRepo.createTrips();
+    userRepo.determineMessage();
+    userRepo.calculateTotalYearCost();
+    userRepo.calculateAllTimeCost();
+    domUpdates.updateHeader(userRepo);
+    domUpdates.populateCarousel(userRepo);
+    domUpdates.populateDestinationOptions(userRepo.destinations);
+  };

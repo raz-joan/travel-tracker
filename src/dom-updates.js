@@ -11,6 +11,12 @@ const totalNumberBanner = document.querySelector('#totalNumberBanner');
 const homePage = document.querySelector('#homePage');
 const formPage = document.querySelector('#formPage');
 
+// query form elements
+const dateInput = document.querySelector('#dateInput');
+const durationInput = document.querySelector('#durationInput');
+const travelersInput = document.querySelector('#travelersInput');
+const destinationInput = document.querySelector('#destinationInput');
+
 // query glide elements:
 const glideSlides = document.querySelector('#glideSlides');
 
@@ -79,6 +85,12 @@ let domUpdates = {
   navigateToForm() {
     homePage.classList.add('hidden');
     formPage.classList.remove('hidden');
+  },
+
+  populateDestinationOptions(destinations) {
+    destinations.forEach((place) => {
+      destinationInput.innerHTML += `<option>${place.destination}</option>`;
+    });
   }
 };
 
