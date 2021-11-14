@@ -25,7 +25,8 @@ apiCalls.getAllData()
     user.createTrips();
     user.determineMessage();
     user.calculateTotalYearCost();
+    user.calculateAllTimeCost();
     domUpdates.updateHeader(user);
     domUpdates.populateCarousel(user);
-    console.log(user);
+    console.log(user); // NEED TO REMOVE THIS
   });

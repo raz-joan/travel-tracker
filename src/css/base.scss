@@ -98,7 +98,7 @@ header {
 
   .greeting-cost-container {
     @include flex(flex-end, flex-start, column);
-    width: 50%;
+    width: 55%;
     padding-left: 3%;
 
     h1 {
@@ -109,12 +109,13 @@ header {
 
     h2 {
       font-size: $small;
+      margin: 0.5% 0;
     }
   }
 
   nav {
     @include flex(flex-end, center);
-    width: 50%;
+    width: 45%;
 
     .navigation {
       background-color: $off-white;
@@ -147,9 +148,14 @@ header {
 
 // the following is the home page view (has the above header)
 .home-page-section {
-  @include flex(center, center);
+  @include flex(center, center, column);
   height: 75vh;
   width: 100%;
+
+  p {
+    font-size: $small;
+    margin: 0.5% 0;
+  }
 
   .trip-card {
     background-color: $white;
@@ -163,7 +169,7 @@ header {
       height: 50vh;
 
       .destination-status-date-container {
-        @include flex(space-around, center, column);
+        @include flex(space-around, flex-start, column);
         height: 60%;
         width: 40%;
 
@@ -178,7 +184,8 @@ header {
       }
 
       .trip-image {
-        width: 50%;
+        max-width: 50%;
+        max-height: 90%;
       }
     }
 
