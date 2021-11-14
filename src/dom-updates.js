@@ -3,6 +3,7 @@ import Glide, { Controls } from '@glidejs/glide/dist/glide.modular.esm';
 // query header elements:
 const welcomeBanner = document.querySelector('#welcomeBanner');
 const totalCostBanner = document.querySelector('#totalCostBanner');
+const totalNumberBanner = document.querySelector('#totalNumberBanner');
 
 // query glide elements:
 const glideSlides = document.querySelector('#glideSlides');
@@ -21,6 +22,7 @@ let domUpdates = {
     welcomeBanner.innerText = ` ${firstName}`;
     const totalMoney = formatter.format(userRepo.totalYearCost);
     totalCostBanner.innerText = `${totalMoney}`;
+    totalNumberBanner.innerText = `${userRepo.updatedTrips.length}`;
   },
 
   populateCarousel(userRepo) {
