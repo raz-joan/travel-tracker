@@ -75,21 +75,20 @@
       <form class="new-trip-form">
         <div>
           <label for="date">Trip Start Date:</label>
-          <input type="date" name="date" class="light-input" id="date" value="yyyy-mm-dd" min="2021-11-01" max="2024-12-31">
+          <input type="date" name="date" class="light-input" id="dateInput" value="yyyy-mm-dd" min="2021-11-01" max="2024-12-31">
         </div>
         <div>
           <label for="duration">Length of Trip (days):</label>
-          <input type="number" name="duration" id="duration" min="1" max="30" placeholder="5">
+          <input type="number" name="duration" id="durationInput" min="1" max="30" placeholder="5">
         </div>
         <div>
           <label for="travelers">Number of Travelers:</label>
-          <input type="number" name="travelers" id="travelers" min="1" max="10" placeholder="1">
+          <input type="number" name="travelers" id="travelersInput" min="1" max="10" placeholder="1">
         </div>
         <div>
           <label for="destination-select">Choose a Destination:</label>
-          <select name="destinations" class="light-input" id="destination-select">
-              <option value="">--Please choose an option--</option>
-              <option value="">Destination</option>
+          <select name="destinations" class="light-input" id="destinationInput">
+              <option>--Please choose an option--</option>
           </select>
         </div>
         <div class="form-button-container">
