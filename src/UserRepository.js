@@ -7,6 +7,7 @@ class UserRepository {
     this.destinations = destinationData;
     this.message = '';
     this.totalYearCost = 0;
+    this.totalAllTimeCost = 0;
     this.updatedTrips = [];
   }
 
@@ -14,25 +15,25 @@ class UserRepository {
     const expr = this.user.travelerType;
     switch (expr) {
     case 'foodie':
-      this.message = ' to eat some amazing dishes!';
+      this.message = 'some amazing dishes!';
       break;
     case 'thrill-seeker':
-      this.message = ' for heart-racing adventure!';
+      this.message = 'heart-racing adventure!';
       break;
     case 'photographer':
-      this.message = ' to capture some amazing views!';
+      this.message = 'some amazing views!';
       break;
     case 'relaxer':
-      this.message = ' for a relaxing time.';
+      this.message = 'relaxing experiences.';
       break;
     case 'shopper':
-      this.message = ' for some unique souvenirs!';
+      this.message = 'some unique souvenirs!';
       break;
     case 'history buff':
-      this.message = ' to learn some interesting new things!';
+      this.message = 'learning interesting new things!';
       break;
     default:
-      this.message = ' for your BEST vacation!';
+      this.message = 'awesome memories!';
       break;
     }
     // return this.message;
@@ -43,12 +44,30 @@ class UserRepository {
       if (trip.userID === this.user.id) {
         let newTrip = new Trip(trip, this.destinations);
         this.updatedTrips.push(newTrip);
+        // console.log(newTrip.date); // NEED TO REMOVE THIS CHECK
       }
     });
+    this.updatedTrips.sort((a, b) => {
+      return new Date(b.date) - new Date(a.date);
+    });
+    // console.log(this.updatedTrips); // NEED TO REMOVE THIS
   }
 
   calculateTotalYearCost() {
     this.totalYearCost = this.updatedTrips.reduce((total, trip) => {
+      if (new Date(trip.date) >= new Date("2021/01/01")) { // added conditional if for just this year ... ????
+        trip.calculateEstCost();
+        trip.calculateAgentPercent();
+        trip.calculateTotalCost();
+        total += trip.totalCost;
+      }
+      return total;
+    }, 0);
+    // return this.totalYearCost;
+  }
+
+  calculateAllTimeCost() {
+    this.totalAllTimeCost = this.updatedTrips.reduce((total, trip) => {
       trip.calculateEstCost();
       trip.calculateAgentPercent();
       trip.calculateTotalCost();
