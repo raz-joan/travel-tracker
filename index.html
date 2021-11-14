@@ -53,8 +53,21 @@
       </form>
     </section>
     <section class="home-page-section">
+      <div class="glide">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            <li class="glide__slide">0</li>
+            <li class="glide__slide">1</li>
+            <li class="glide__slide">2</li>
+          </ul>
+        </div>
+        <div class="glide__arrows" data-glide-el="controls">
+          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+          <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+        </div>
+      </div>
       <!-- section for glide.js, the following is the template for a 'trip card' -->
-      <article class="trip-card">
+      <!-- <article class="trip-card">
         <div class="info-image-container">
           <div class="destination-status-date-container">
             <h3>Destination</h3>
@@ -67,7 +80,7 @@
           <p>Get ready <span>'switch statement response.'</span></p>
           <p class="est-cost">Estimated Trip Cost: <span>'$ amount'</span>; add-on agent fee: <span>'$ amount'</span></p>
         </div>
-      </article>
+      </article> -->
       <!-- end of the trip card -->
     </section>
     <section class="new-trip-form-section hidden">
