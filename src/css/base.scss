@@ -2,6 +2,8 @@
 @use '_variables' as *;
 @use '_mixins' as *;
 @import '_normalize';
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
 
 body {
   background-color: $off-white;
@@ -146,6 +148,7 @@ header {
 .home-page-section {
   @include flex(center, center);
   height: 75vh;
+  width: 100%;
 
   .trip-card {
     border: solid $grey 2px;
@@ -314,6 +317,9 @@ footer {
       .info-image-container {
         @include flex(center, center, column-reverse);
         height: 55%;
+        .trip-image {
+          width: 20%;
+        }
         .destination-status-date-container {
           @include flex(center, center, column);
         }

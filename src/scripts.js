@@ -26,5 +26,6 @@ apiCalls.getAllData()
     user.determineMessage();
     user.calculateTotalYearCost();
     domUpdates.updateHeader(user);
+    domUpdates.populateCarousel(user);
     console.log(user);
   });
