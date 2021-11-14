@@ -17,7 +17,16 @@ import domUpdates from './dom-updates';
 let userID = Math.floor(Math.random() * 50);
 let user;
 
-// functions, eventListeners, etc ...
+// queries
+const homeButton = document.querySelector('#homeButton');
+const newTripButton = document.querySelector('#newTripButton');
+const logOutButton = document.querySelector('#logOutButton');
+
+// event listeners
+homeButton.addEventListener('click', domUpdates.navigateToHome);
+newTripButton.addEventListener('click', domUpdates.navigateToForm);
+
+// functions
 apiCalls.getAllData()
   .then(data => {
     let userObj = data[0].find(entry => entry.id === userID);

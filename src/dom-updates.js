@@ -7,6 +7,10 @@ const yearCostBanner = document.querySelector('#yearCostBanner');
 const allTimeCostBanner = document.querySelector('#allTimeCostBanner');
 const totalNumberBanner = document.querySelector('#totalNumberBanner');
 
+// query page sections
+const homePage = document.querySelector('#homePage');
+const formPage = document.querySelector('#formPage');
+
 // query glide elements:
 const glideSlides = document.querySelector('#glideSlides');
 
@@ -65,6 +69,16 @@ let domUpdates = {
       type: 'carousel'
     };
     new Glide('.glide', glideObj).mount({ Controls });
+  },
+
+  navigateToHome() {
+    homePage.classList.remove('hidden');
+    formPage.classList.add('hidden');
+  },
+
+  navigateToForm() {
+    homePage.classList.add('hidden');
+    formPage.classList.remove('hidden');
   }
 };
 

@@ -23,15 +23,15 @@
       <nav>
         <div class="navigation">
           <img class="navigation-icon" src="./images/home-icon.png" alt="home icon">
-          <button class="navigation-button" type="button">Home</button>
+          <button class="navigation-button" type="button" id="homeButton">Home</button>
         </div>
         <div class="navigation">
           <img class="navigation-icon" src="./images/ticket-icon.png" alt="ticket icon">
-          <button class="navigation-button" type="button">New Trip</button>
+          <button class="navigation-button" type="button" id="newTripButton">New Trip</button>
         </div>
         <div class="navigation">
           <img class="navigation-icon" src="./images/logout-icon.png" alt="sign out icon">
-          <button class="navigation-button" type="button">Log Out</button>
+          <button class="navigation-button" type="button" id="logOutButton">Log Out</button>
         </div>
       </nav>
     </header>
@@ -53,7 +53,7 @@
         <p class="popup-response">'error response to user'</p>
       </form>
     </section>
-    <section class="home-page-section">
+    <section class="home-page-section" id="homePage">
       <p>Newest to Oldest:</p>
       <div class="glide">
         <div class="glide__track" data-glide-el="track">
@@ -67,7 +67,7 @@
         </div>
       </div>
     </section>
-    <section class="new-trip-form-section hidden">
+    <section class="new-trip-form-section hidden" id="formPage">
       <div class="form-banner">
         <img src="./images/passport-icon.png" alt="passport icon">
         <h2>Tell us where you'd like to go next!</h2>
