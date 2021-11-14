@@ -21,17 +21,17 @@ class Trip {
   calculateEstCost() {
     this.estCost = (this.duration * this.estimatedLodgingCostPerDay)
       + (this.travelers * this.estimatedFlightCostPerPerson);
-    return this.estCost;
+    // return this.estCost;
   }
 
   calculateAgentPercent() {
     this.agentPercent = this.estCost * 0.1;
-    return this.agentPercent;
+    // return this.agentPercent;
   }
 
   calculateTotalCost() {
     this.totalCost = this.estCost + this.agentPercent;
-    return this.totalCost;
+    // return this.totalCost;
   }
 }
 

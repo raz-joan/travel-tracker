@@ -2,6 +2,8 @@
 @use '_variables' as *;
 @use '_mixins' as *;
 @import '_normalize';
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
 
 body {
   background-color: $off-white;
@@ -102,10 +104,11 @@ header {
     h1 {
       font-size: $x-large;
       font-weight: bold;
+      margin: 1% 0;
     }
 
     h2 {
-      font-size: $medium;
+      font-size: $small;
     }
   }
 
@@ -146,15 +149,18 @@ header {
 .home-page-section {
   @include flex(center, center);
   height: 75vh;
+  width: 100%;
 
   .trip-card {
-    border: solid $grey 2px;
+    background-color: $white;
+    box-shadow: 2px 1px 6px $grey;
     width: 75%;
-    height: 60vh;
+    height: 65vh;
+    margin-left: 12.5%;
 
     .info-image-container {
       @include flex(space-around, center);
-      height: 45vh;
+      height: 50vh;
 
       .destination-status-date-container {
         @include flex(space-around, center, column);
@@ -167,18 +173,19 @@ header {
         }
 
         p {
-          font-size: $large;
+          font-size: $medium;
         }
       }
 
       .trip-image {
-        width: 40%;
+        width: 50%;
       }
     }
 
     .message-cost-container {
       @include flex(space-around, center, column);
       height: 15vh;
+      padding: 2% 3%;
 
       p {
         font-size: $large;
@@ -271,6 +278,15 @@ footer {
   display: none;
 }
 
+.glide__arrow {
+  background-color: $grey;
+  opacity: 0.5;
+  &:focus {
+    background-color: $dark-blue;
+    opacity: 0.9;
+  }
+}
+
 // the following are media queries for responsive design
 @media screen  and (min-width: 600px) and (max-width: 1000px) {
   header {
@@ -314,6 +330,9 @@ footer {
       .info-image-container {
         @include flex(center, center, column-reverse);
         height: 55%;
+        .trip-image {
+          width: 20%;
+        }
         .destination-status-date-container {
           @include flex(center, center, column);
         }

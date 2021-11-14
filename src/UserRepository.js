@@ -35,7 +35,7 @@ class UserRepository {
       this.message = ' for your BEST vacation!';
       break;
     }
-    return this.message;
+    // return this.message;
   }
 
   createTrips() {
@@ -48,15 +48,14 @@ class UserRepository {
   }
 
   calculateTotalYearCost() {
-    const totalMoney = this.updatedTrips.reduce((total, trip) => {
+    this.totalYearCost = this.updatedTrips.reduce((total, trip) => {
       trip.calculateEstCost();
       trip.calculateAgentPercent();
       trip.calculateTotalCost();
       total += trip.totalCost;
       return total;
     }, 0);
-    this.totalYearCost = totalMoney;
-    return this.totalYearCost;
+    // return this.totalYearCost;
   }
 }
 
