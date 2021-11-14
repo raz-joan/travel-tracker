@@ -11,9 +11,10 @@ import './images/traveling-icon.png';
 
 import apiCalls from './api-calls';
 import UserRepository from './UserRepository';
+import domUpdates from './dom-updates';
 
 // globals
-let userID = 17; // eventually this will come in from the log in page
+let userID = Math.floor(Math.random() * 50);
 let user;
 
 // functions, eventListeners, etc ...
@@ -24,5 +25,6 @@ apiCalls.getAllData()
     user.createTrips();
     user.determineMessage();
     user.calculateTotalYearCost();
-    console.log(user); // fetch and methods are working!
+    domUpdates.updateHeader(user);
+    console.log(user);
   });
