@@ -11,7 +11,7 @@ import './images/traveling-icon.png';
 
 import apiCalls from './api-calls';
 import UserRepository from './UserRepository';
-import domUpdates from './dom-updates';
+import { domUpdates, dateInput, durationInput, travelersInput, destinationInput } from './dom-updates';
 
 // globals
 let userID = Math.floor(Math.random() * 50);
@@ -21,10 +21,14 @@ let user;
 const homeButton = document.querySelector('#homeButton');
 const newTripButton = document.querySelector('#newTripButton');
 const logOutButton = document.querySelector('#logOutButton');
+const costEstButton = document.querySelector('#costEstButton');
+const resetButton = document.querySelector('#resetButton');
 
 // event listeners
 homeButton.addEventListener('click', domUpdates.navigateToHome);
 newTripButton.addEventListener('click', domUpdates.navigateToForm);
+costEstButton.addEventListener('click', calculateRequestedTripCost);
+resetButton.addEventListener('click', domUpdates.hideMessage);
 
 // functions
 apiCalls.getAllData()
@@ -44,3 +48,18 @@ apiCalls.getAllData()
     domUpdates.populateCarousel(userRepo);
     domUpdates.populateDestinationOptions(userRepo.destinations);
   };
+
+  function calculateRequestedTripCost() {
+    let chosenDestination = destinationInput.value;
+    let lodgingCost = user.destinations.find((entry) => {return entry.destination === chosenDestination}).estimatedLodgingCostPerDay;
+    // console.log('loding:', lodgingCost);
+    let flightCost = user.destinations.find((entry) => {return entry.destination === chosenDestination}).estimatedFlightCostPerPerson;
+    // console.log('flight:', flightCost);
+    // console.log(durationInput.value, travelersInput.value)
+    let tripCost = (parseInt(durationInput.value) * lodgingCost)
+      + (parseInt(travelersInput.value) * flightCost);
+    let agentFee = tripCost * 0.1;
+    let totalEst = tripCost + agentFee;
+    // console.log(totalEst);
+    domUpdates.displayEstimatedRequestedTripCost(totalEst);
+  }

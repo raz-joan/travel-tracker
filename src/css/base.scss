@@ -226,10 +226,10 @@ header {
 
   .new-trip-form {
     @include flex(space-around, flex-start, column);
-    border: solid $grey 2px;
+    background-color: $white;
+    box-shadow: 2px 1px 6px $grey;
     height: 40vh;
     width: 50%;
-    color: $dark-blue;
     padding: 2%;
 
     input,
@@ -242,11 +242,11 @@ header {
     }
 
     input::placeholder {
-      color: $light-blue;
+      color: $dark-blue;
     }
 
     .light-input {
-      color: $light-blue;
+      color: $dark-blue;
     }
 
     .form-button-container {

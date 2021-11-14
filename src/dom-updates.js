@@ -16,6 +16,7 @@ const dateInput = document.querySelector('#dateInput');
 const durationInput = document.querySelector('#durationInput');
 const travelersInput = document.querySelector('#travelersInput');
 const destinationInput = document.querySelector('#destinationInput');
+const formMessage = document.querySelector('#formMessage');
 
 // query glide elements:
 const glideSlides = document.querySelector('#glideSlides');
@@ -91,7 +92,17 @@ let domUpdates = {
     destinations.forEach((place) => {
       destinationInput.innerHTML += `<option>${place.destination}</option>`;
     });
+  },
+
+  displayEstimatedRequestedTripCost(cost) {
+    let newCost = formatter.format(cost);
+    formMessage.innerText = `For your current selections, the estimated trip cost, which includes the 10% agent fee, is ${newCost}.`;
+    formMessage.classList.remove('hidden');
+  },
+
+  hideMessage() {
+    formMessage.classList.add('hidden');
   }
 };
 
-export default domUpdates;
+export { domUpdates, dateInput, durationInput, travelersInput, destinationInput };
