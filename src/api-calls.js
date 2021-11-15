@@ -20,10 +20,10 @@ let apiCalls = {
   },
 
   getAllData() {
-    const gotUserData = this.getData('http://localhost:3001/api/v1/travelers', 'travelers');
-    const gotTripData = this.getData('http://localhost:3001/api/v1/trips', 'trips');
-    const gotDestinationData = this.getData('http://localhost:3001/api/v1/destinations', 'destinations');
-    const allPromise = Promise.all([gotUserData, gotTripData, gotDestinationData])
+    const fetchedUsers = this.getData('http://localhost:3001/api/v1/travelers', 'travelers');
+    const fetchedTrips = this.getData('http://localhost:3001/api/v1/trips', 'trips');
+    const fetchedDestinations = this.getData('http://localhost:3001/api/v1/destinations', 'destinations');
+    const allPromise = Promise.all([fetchedUsers, fetchedTrips, fetchedDestinations])
       .then(data => data);
     return allPromise;
   },
@@ -40,7 +40,7 @@ let apiCalls = {
       errorHandling.checkStatus(response);
       return response.json();
     })
-    .catch(err => errorHandling.connectionErr(err, `There was an error posting to ${url}.`));
+    .catch(err => errorHandling.connectionErr(err));
     return postedData;
   }
 };
