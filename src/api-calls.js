@@ -26,23 +26,23 @@ let apiCalls = {
     const allPromise = Promise.all([gotUserData, gotTripData, gotDestinationData])
       .then(data => data);
     return allPromise;
-  }
+  },
 
-  // postData(url, newData) {
-  //   const postedData = fetch(url, {
-  //     method: "POST",
-  //     body: JSON.stringify(newData),
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     }
-  //   })
-  //   .then(response => {
-  //     checkStatus(response);
-  //     return response.json();
-  //   })
-  //   .catch(err => connectionErr(err));
-  //   return postedData;
-  // };
+  postData(url, newData) {
+    const postedData = fetch(url, {
+      method: "POST",
+      body: JSON.stringify(newData),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => {
+      errorHandling.checkStatus(response);
+      return response.json();
+    })
+    .catch(err => errorHandling.connectionErr(err, `There was an error posting to ${url}.`));
+    return postedData;
+  }
 };
 
 export default apiCalls;

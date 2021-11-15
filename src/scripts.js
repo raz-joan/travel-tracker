@@ -23,12 +23,14 @@ const newTripButton = document.querySelector('#newTripButton');
 const logOutButton = document.querySelector('#logOutButton');
 const costEstButton = document.querySelector('#costEstButton');
 const resetButton = document.querySelector('#resetButton');
+const formSubmitButton = document.querySelector('#formSubmitButton');
 
 // event listeners
 homeButton.addEventListener('click', domUpdates.navigateToHome);
 newTripButton.addEventListener('click', domUpdates.navigateToForm);
 costEstButton.addEventListener('click', calculateRequestedTripCost);
 resetButton.addEventListener('click', domUpdates.hideMessage);
+formSubmitButton.addEventListener('click', postFormInputsToServer);
 
 // functions
 apiCalls.getAllData()
@@ -69,5 +71,24 @@ apiCalls.getAllData()
       return false;
     } else {
       return true;
+    }
+  };
+
+  function postFormInputsToServer() {
+    if (checkForValidInputs()) {
+      let requestedTrip = {
+        id: user.trips.length + 1,
+        userID: user.user.id,
+        destinationID: destinationInput.value,
+        travelers: parseInt(travelersInput.value),
+        date: dateInput.value.split('-').join('/'),
+        duration: parseInt(durationInput.value),
+        status: 'pending',
+        suggestedActivities: []
+      };
+      let response = apiCalls.postData('http://localhost:3001/api/v1/trips/', requestedTrip);
+      console.log('response from post: ', response);
+    } else {
+      domUpdates.displayInvalidInputMessage();
     }
   };
