@@ -52,7 +52,7 @@ class UserRepository {
 
   calculateTotalYearCost() {
     this.totalYearCost = this.updatedTrips.reduce((total, trip) => {
-      if (new Date(trip.date) >= new Date("2021/01/01")) {
+      if (new Date("2021/01/01") <= new Date(trip.date) && new Date(trip.date) < new Date("2022/01/01")) {
         trip.calculateEstCost();
         trip.calculateAgentPercent();
         trip.calculateTotalCost();

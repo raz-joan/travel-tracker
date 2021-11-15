@@ -63,7 +63,7 @@ describe('UserRepository', () => {
   it('should calculate and update the total yearly cost', () => {
     userRepo.createTrips();
     userRepo.calculateTotalYearCost();
-    expect(userRepo.totalYearCost).to.equal(1408);
+    expect(userRepo.totalYearCost).to.equal(0);
   });
 
   it('should calculate and update the total all time cost', () => {
