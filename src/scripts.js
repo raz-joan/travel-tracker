@@ -15,7 +15,7 @@ import { domUpdates, dateInput, durationInput, travelersInput, destinationInput 
 
 // globals
 // let userID = Math.floor(Math.random() * 50);
-let userID = 34;
+let userID = 39;
 let user;
 
 // queries
@@ -36,7 +36,7 @@ formSubmitButton.addEventListener('click', postFormInputsToServer);
 
 // functions
 function fetchAllData() {
-  apiCalls.getAllData()
+  return apiCalls.getAllData()
   .then(data => {
     let userObj = data[0].find(entry => entry.id === userID);
     user = new UserRepository(userObj, data[1], data[2]);
@@ -71,10 +71,10 @@ function calculateRequestedTripCost() {
 };
 
 function checkForValidInputs() {
-  if (!dateInput.value || !durationInput.value || !travelersInput.value || !destinationInput.value) {
-    return false;
-  } else {
+  if (dateInput.value && durationInput.value && travelersInput.value && destinationInput.value) {
     return true;
+  } else {
+    return false;
   }
 };
 
@@ -91,8 +91,13 @@ function postFormInputsToServer() {
       suggestedActivities: []
     };
     console.log(requestedTrip); // NEED TO REMOVE THIS
-    let response = apiCalls.postData('http://localhost:3001/api/v1/trips', requestedTrip);
-
+    apiCalls.postData('http://localhost:3001/api/v1/trips', requestedTrip)
+      .then(() => {
+        fetchAllData()
+          .then(() => {
+            domUpdates.displaySuccessMessageUponPost();
+          })
+      });
   } else {
     domUpdates.displayInvalidInputMessage();
   }
