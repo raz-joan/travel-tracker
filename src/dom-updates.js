@@ -17,6 +17,7 @@ const durationInput = document.querySelector('#durationInput');
 const travelersInput = document.querySelector('#travelersInput');
 const destinationInput = document.querySelector('#destinationInput');
 const formMessage = document.querySelector('#formMessage');
+const newTripForm = document.querySelector('#newTripForm');
 
 // query glide elements:
 const glideSlides = document.querySelector('#glideSlides');
@@ -50,6 +51,7 @@ let domUpdates = {
   },
 
   populateCarousel(userRepo) {
+    glideSlides.innerHTML = '';
     userRepo.updatedTrips.forEach((trip) => {
       let tripEstCost = formatter.format(trip.estCost);
       let tripAgentPercent = formatter.format(trip.agentPercent);
@@ -72,10 +74,7 @@ let domUpdates = {
           </article>
         </li>`;
     });
-    const glideObj = {
-      type: 'carousel'
-    };
-    new Glide('.glide', glideObj).mount({ Controls });
+    new Glide('.glide').mount({ Controls });
   },
 
   navigateToHome() {
@@ -107,6 +106,18 @@ let domUpdates = {
   displayInvalidInputMessage() {
     formMessage.innerText = `Please check that all inputs are filled in correctly.`;
     formMessage.classList.remove('hidden');
+  },
+
+  displaySuccessMessageUponPost() {
+    formMessage.innerText = `Congrats on submitting your new trip request. We will now reroute you back to your homepage.`;
+    formMessage.classList.remove('hidden');
+    setTimeout(() => {this.formReset()}, 1500);
+    setTimeout(() => {this.navigateToHome()}, 2000);
+  },
+
+  formReset() {
+    newTripForm.reset();
+    this.hideMessage();
   }
 };
 
