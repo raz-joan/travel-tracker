@@ -96,12 +96,17 @@ let domUpdates = {
 
   displayEstimatedRequestedTripCost(cost) {
     let newCost = formatter.format(cost);
-    formMessage.innerText = `For your current selections, the estimated trip cost, which includes the 10% agent fee, is ${newCost}.`;
+    formMessage.innerText = `For your current selections, the estimated trip cost, which includes the 10% agent fee, is ${newCost}. If your're ready for this adventure, then just click 'Submit Trip Request'!`;
     formMessage.classList.remove('hidden');
   },
 
   hideMessage() {
     formMessage.classList.add('hidden');
+  },
+
+  displayInvalidInputMessage() {
+    formMessage.innerText = `Please check that all inputs are filled in correctly.`;
+    formMessage.classList.remove('hidden');
   }
 };
 

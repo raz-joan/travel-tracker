@@ -36,7 +36,6 @@ class UserRepository {
       this.message = 'awesome memories!';
       break;
     }
-    // return this.message;
   }
 
   createTrips() {
@@ -44,18 +43,16 @@ class UserRepository {
       if (trip.userID === this.user.id) {
         let newTrip = new Trip(trip, this.destinations);
         this.updatedTrips.push(newTrip);
-        // console.log(newTrip.date); // NEED TO REMOVE THIS CHECK
       }
     });
     this.updatedTrips.sort((a, b) => {
       return new Date(b.date) - new Date(a.date);
     });
-    // console.log(this.updatedTrips); // NEED TO REMOVE THIS
   }
 
   calculateTotalYearCost() {
     this.totalYearCost = this.updatedTrips.reduce((total, trip) => {
-      if (new Date(trip.date) >= new Date("2021/01/01")) { // added conditional if for just this year ... ????
+      if (new Date(trip.date) >= new Date("2021/01/01")) {
         trip.calculateEstCost();
         trip.calculateAgentPercent();
         trip.calculateTotalCost();
@@ -63,7 +60,6 @@ class UserRepository {
       }
       return total;
     }, 0);
-    // return this.totalYearCost;
   }
 
   calculateAllTimeCost() {
@@ -74,7 +70,6 @@ class UserRepository {
       total += trip.totalCost;
       return total;
     }, 0);
-    // return this.totalYearCost;
   }
 }
 

@@ -50,16 +50,24 @@ apiCalls.getAllData()
   };
 
   function calculateRequestedTripCost() {
-    let chosenDestination = destinationInput.value;
-    let lodgingCost = user.destinations.find((entry) => {return entry.destination === chosenDestination}).estimatedLodgingCostPerDay;
-    // console.log('loding:', lodgingCost);
-    let flightCost = user.destinations.find((entry) => {return entry.destination === chosenDestination}).estimatedFlightCostPerPerson;
-    // console.log('flight:', flightCost);
-    // console.log(durationInput.value, travelersInput.value)
-    let tripCost = (parseInt(durationInput.value) * lodgingCost)
-      + (parseInt(travelersInput.value) * flightCost);
-    let agentFee = tripCost * 0.1;
-    let totalEst = tripCost + agentFee;
-    // console.log(totalEst);
-    domUpdates.displayEstimatedRequestedTripCost(totalEst);
-  }
+    if (checkForValidInputs()) {
+      let chosenDestination = destinationInput.value;
+      let lodgingCost = user.destinations.find((entry) => {return entry.destination === chosenDestination}).estimatedLodgingCostPerDay;
+      let flightCost = user.destinations.find((entry) => {return entry.destination === chosenDestination}).estimatedFlightCostPerPerson;
+      let tripCost = (parseInt(durationInput.value) * lodgingCost)
+        + (parseInt(travelersInput.value) * flightCost);
+      let agentFee = tripCost * 0.1;
+      let totalEst = tripCost + agentFee;
+      domUpdates.displayEstimatedRequestedTripCost(totalEst);
+    } else {
+      domUpdates.displayInvalidInputMessage();
+    }
+  };
+
+  function checkForValidInputs() {
+    if (!dateInput.value || !durationInput.value || !travelersInput.value || !destinationInput.value) {
+      return false;
+    } else {
+      return true;
+    }
+  };
