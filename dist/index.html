@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&family=Permanent+Marker&display=swap" rel="stylesheet">
     <title>Travel Tracker</title>
   </head>
   <body>
@@ -18,7 +18,7 @@
       <div class="greeting-cost-container">
         <h1 class="welcome-banner">Hello<span id="welcomeBanner">'user's name'</span>!</h1>
         <h2 class="total-cost-banner">All-time trips: <span id="totalNumberBanner">'number'</span> & All-time cost: <span id="allTimeCostBanner">'$ amount'</span></h2>
-        <h2>'2021' costs: <span id="yearCostBanner">'$ amount'</span></h2>
+        <h2>Costs for 2021: <span id="yearCostBanner">'$ amount'</span></h2>
       </div>
       <nav>
         <div class="navigation">
@@ -36,10 +36,7 @@
       </nav>
     </header>
     <section class="log-in-section" id="logInPage">
-      <div class="log-in-banner">
         <h1>Travel Tracker</h1>
-        <img class="navigation-icon" src="./images/traveling-icon.png" alt="world and plane icon">
-      </div>
       <form class="log-in-form" id="logInForm">
         <div class="form-input-label">
           <input type="text" name="username" value="" id="username" autocomplete="username">
@@ -54,7 +51,6 @@
       <p class="popup-response hidden" id="logInResponse">Please check the input values for both the username and password.</p>
     </section>
     <section class="home-page-section hidden" id="homePage">
-      <p>Newest to Oldest:</p>
       <div class="glide">
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides" id="glideSlides">
@@ -99,7 +95,7 @@
         <p class="popup-response hidden" id="formMessage">message</p>
       </form>
     </section>
-    <footer>
+    <footer class="hidden" id="footer">
       <div class="note">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </footer>
     <script src="bundle.js"></script>
