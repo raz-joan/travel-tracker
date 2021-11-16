@@ -138,7 +138,15 @@ let domUpdates = {
 
   hideLogIn() {
     logInPage.classList.add('hidden');
+    logInResponse.classList.add('hidden');
     logInForm.reset();
+  },
+
+  redirectToLogInPage() {
+    header.classList.add('hidden');
+    homePage.classList.add('hidden');
+    formPage.classList.add('hidden');
+    logInPage.classList.remove('hidden');
   }
 };
 

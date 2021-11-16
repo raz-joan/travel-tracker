@@ -14,7 +14,6 @@ import UserRepository from './UserRepository';
 import { domUpdates, dateInput, durationInput, travelersInput, destinationInput } from './dom-updates';
 
 // globals
-// let userID = Math.floor(Math.random() * 50);
 let userID;
 let user;
 
@@ -30,13 +29,13 @@ const username = document.querySelector('#username');
 const password = document.querySelector('#password');
 
 // event listeners
-// window.addEventListener('load', fetchAllData);
 homeButton.addEventListener('click', domUpdates.navigateToHome);
 newTripButton.addEventListener('click', domUpdates.navigateToForm);
 costEstButton.addEventListener('click', calculateRequestedTripCost);
 resetButton.addEventListener('click', domUpdates.hideMessage);
 formSubmitButton.addEventListener('click', postFormInputsToServer);
 logInButton.addEventListener('click', verifyLogInInputs);
+logOutButton.addEventListener('click', domUpdates.redirectToLogInPage);
 
 // functions
 function fetchAllData() {
