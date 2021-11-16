@@ -14,6 +14,7 @@ const header = document.querySelector('#header');
 // query page sections
 const homePage = document.querySelector('#homePage');
 const formPage = document.querySelector('#formPage');
+const footer = document.querySelector('#footer');
 
 // query form elements
 const dateInput = document.querySelector('#dateInput');
@@ -54,8 +55,8 @@ let domUpdates = {
     let start = new Date(startDate);
     let startDay = dayjs(start);
     let endDay = dayjs(startDay).add(7, 'day');
-    startDay = dayjs(startDay).format('dd, MMM DD, YYYY');
-    endDay = dayjs(endDay).format('dd, MMM DD, YYYY');
+    startDay = dayjs(startDay).format('dddd, MMM DD, YYYY');
+    endDay = dayjs(endDay).format('MMM DD, YYYY');
     return startDay + ' to ' + endDay;
   },
 
@@ -71,8 +72,10 @@ let domUpdates = {
             <div class="info-image-container">
               <div class="destination-status-date-container">
                 <h3>${trip.destination}</h3>
-                <p>We hope it's full of ${userRepo.message}</p>
-                <p>Trip Status: ${trip.status}</p>
+                <div>
+                  <p>We hope it's full of ${userRepo.message}</p>
+                  <p>Trip Status: ${trip.status}</p>
+                </div>
               </div>
               <img class="trip-image" src=${trip.img} alt=${trip.alt}>
             </div>
@@ -89,6 +92,7 @@ let domUpdates = {
   navigateToHome() {
     homePage.classList.remove('hidden');
     header.classList.remove('hidden');
+    footer.classList.remove('hidden');
     formPage.classList.add('hidden');
     myGlideSlider.update();
   },
@@ -106,7 +110,7 @@ let domUpdates = {
 
   displayEstimatedRequestedTripCost(cost) {
     let newCost = formatter.format(cost);
-    formMessage.innerText = `For your current selections, the estimated trip cost, which includes the 10% agent fee, is ${newCost}. If your're ready for this adventure, then just click 'Submit Trip Request'!`;
+    formMessage.innerText = `The estimated trip cost, which includes the 10% agent fee, is ${newCost}.`;
     formMessage.classList.remove('hidden');
   },
 
@@ -119,11 +123,11 @@ let domUpdates = {
     formMessage.classList.remove('hidden');
   },
 
-  displaySuccessMessageUponPost() {
-    formMessage.innerText = `Congrats on submitting your new trip request. We will now reroute you back to your homepage.`;
+  displaySuccessMessageUponPost(duration, place) {
+    formMessage.innerText = `Your ${duration} day trip to ${place} has been requested.`;
     formMessage.classList.remove('hidden');
-    setTimeout(() => {this.formReset()}, 1500);
-    setTimeout(() => {this.navigateToHome()}, 2000);
+    setTimeout(() => {this.formReset()}, 3000);
+    setTimeout(() => {this.navigateToHome()}, 3000);
   },
 
   formReset() {
@@ -146,6 +150,7 @@ let domUpdates = {
     header.classList.add('hidden');
     homePage.classList.add('hidden');
     formPage.classList.add('hidden');
+    footer.classList.add('hidden');
     logInPage.classList.remove('hidden');
   }
 };

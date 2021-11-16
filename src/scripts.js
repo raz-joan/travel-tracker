@@ -44,7 +44,6 @@ function fetchAllData() {
     let userObj = data[0].find(entry => entry.id === userID);
     user = new UserRepository(userObj, data[1], data[2]);
     setUpUserAccount(user);
-    console.log(user); // NEED TO REMOVE THIS
   });
 };
 
@@ -93,12 +92,13 @@ function postFormInputsToServer() {
       status: 'pending',
       suggestedActivities: []
     };
-    console.log(requestedTrip); // NEED TO REMOVE THIS
     apiCalls.postData('http://localhost:3001/api/v1/trips', requestedTrip)
       .then(() => {
         fetchAllData()
           .then(() => {
-            domUpdates.displaySuccessMessageUponPost();
+            let locationID = user.trips[user.trips.length - 1].destinationID;
+            let location = user.destinations.find(entry => entry.id === locationID).destination;
+            domUpdates.displaySuccessMessageUponPost(parseInt(durationInput.value), location);
           })
       });
   } else {
