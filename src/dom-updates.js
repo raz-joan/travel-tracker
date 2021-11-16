@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 
 // global
 let myGlideSlider;
+let pendingColorUpdate = 'green';
 
 // query header elements:
 const welcomeBanner = document.querySelector('#welcomeBanner');
@@ -66,6 +67,11 @@ let domUpdates = {
       let tripEstCost = formatter.format(trip.estCost);
       let tripAgentPercent = formatter.format(trip.agentPercent);
       let dates = this.formatDates(trip.date);
+      if (trip.status === 'pending') {
+        pendingColorUpdate = 'orange';
+      } else {
+        pendingColorUpdate = 'green';
+      };
       glideSlides.innerHTML += `
         <li class="glide__slide">
           <article class="trip-card">
@@ -74,7 +80,7 @@ let domUpdates = {
                 <h3>${trip.destination}</h3>
                 <div>
                   <p>We hope it's full of ${userRepo.message}</p>
-                  <p>Trip Status: ${trip.status}</p>
+                  <p class="${pendingColorUpdate}">Trip Status: ${trip.status}</p>
                 </div>
               </div>
               <img class="trip-image" src=${trip.img} alt=${trip.alt}>

@@ -62,7 +62,10 @@ body {
   }
   .popup-response {
     color: $orange;
+    background-color: $white;
+    box-shadow: $standard-shadow;
     margin: 2% 0;
+    padding: 0.5%;
   }
 }
 
@@ -119,7 +122,7 @@ header {
 
 // the home-page view (has the above header)
 .home-page-section {
-  @include flex(space-evenly, center, column);
+  @include flex(center, center, column);
   height: 70vh;
   width: 100vw;
 
@@ -127,13 +130,13 @@ header {
     background-color: $white;
     border: solid black 1px;
     box-shadow: $standard-shadow;
-    width: 60%;
+    width: 70%;
     height: 65vh;
-    margin-left: 20%;
+    margin-left: 15%;
 
     .info-image-container {
       @include flex(space-around, center);
-      height: 50vh;
+      height: 75%;
 
       .destination-status-date-container {
         @include flex(space-around, flex-start, column);
@@ -150,6 +153,14 @@ header {
           color: $grey;
           margin: 2% 0;
         }
+
+        .orange {
+          color: $orange;
+        }
+
+        .green {
+          color: $green;
+        }
       }
 
       .trip-image {
@@ -160,7 +171,7 @@ header {
 
     .message-cost-container {
       @include flex(space-around, center, column);
-      height: 15vh;
+      height: 25%;
       padding: 2% 3%;
 
       p {
