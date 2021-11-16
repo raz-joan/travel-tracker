@@ -1,105 +1,76 @@
-# Webpack Starter Kit
+# Mod 2: Final Project: Travel Tracker  
 
-## Clone This Repo
+Authored by: [Joan Rasmussen](https://github.com/raz-joan)  
+Project Manager: [Cassandra Torske](https://github.com/CassandraGoose)  
 
-That's right, _clone_ not fork. You will use this repo multiple times, but you can only fork a repository once. So here is what you need to do to clone the repo and still be able to push changes to your repo:
+Want to see it in action? --> [Deployed Site]((http://raz-joan.github.io/travel-tracker))
 
-1. Clone down this repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Remove the default remote: `git remote rm origin` (notice that `git remote -v` not gives you back nothing)
-1. Create a new repo on GitHub with the name of `[what you want to name the repo]` to be consistent with naming
-1. Copy the address that you would use to clone down this repo - something like `git@github.com:...`
-1. Add this remote to your cloned down repo: `git remote add origin [address you copied in the previous step]` - do not include the brackets
+## Table Of Contents
+- [Overview](#overview)
+- [Project Goals](#project-goals)
+- [Project Spec / Rubric Link](#project-spec)
+- [Setup Instructions](#setup-instructions)
+- [Technologies](#technologies)
+- [Code Architecture](#code-architecture)
+- [Illustrations](#illustrations)
+- [Reflections](#reflections)
+- [Challenges](#challenges)
+- [Wins](#wins)
 
-Now try to commit something and push it up to your new repo. If everything is setup correctly, you should see the changes on GitHub.
 
-## Setup
+## Overview  
+  This goal of this solo project was to build a browser application that fetches data from a local server, which was provided. When visiting the site, a user will land on a log in page. Upon successful username and password input, they will be redirected to their home page. This dashboard shows all of their unique data, including: trips (past, present, upcoming, and pending), the total amount they have spent on trips this year (including a 10% agent fee), and they should be able to submit a new trip request to the travel agent.
 
-After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo. 
+## Project Goals  
+  The learning goals of this project were to:  
+  - Use OOP to drive the design of the application and the code.
+  - Implement a robust testing suite using TDD.
+  - Work with fetch API to send and receive data.
+  - Track progress with a GitHub project board and solidify the code review process.
+  - Write code that is accessible, DRY, and follows SRP.
 
-Then install the library dependencies. Run:
+## Project Spec  
+  You can find the project rubric [here](https://frontend.turing.edu/projects/travel-tracker.html).  
 
-```bash
-npm install
-```
+## Setup Instructions  
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with some `h1` text, Turing logo image and a beautiful gradient background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
+1. Fork and then clone down this repo to your local machine.
+2. Clone down the server [repo](https://github.com/turingschool-examples/travel-tracker-api), as well.
+3. Separately, open the root folders for each repo in your terminal and run the command `npm install` to install the dependencies on both.
+4. In your terminal, run `npm start` on both repos to initialize the server and webpage.
+5. In your browser, enter [http://localhost:8080/](http://localhost:8080/) to see the project.
+6. Follow the directions in the server README.md, to check the data at the various endpoints.  
 
-## Where to Add Your Code
 
-### JavaScript
+## Technologies  
+  Technologies used were: HTML, SCSS, MOCHA, CHAI, JAVASCRIPT, fetchAPI, GLIDE.JS, and DAY.JS.  
 
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
+## Code Architecture  
+  This application consists of one HTML file, four SCSS files, an images folder, three test files, two class files, one view-related code file, and three business-related code files. ES6 import and export syntax was used to tell Webpack how to bundle the files. The icons were sourced on [flaticon.com](https://www.flaticon.com/). Attribution is noted in the footer of the site.
 
-**Create all of your feature code files in the `src` directory.**
+## Illustrations  
+#### Desktop Views:  
+<img width="1439" alt="desktopLogin" src="https://user-images.githubusercontent.com/80644408/142063528-af07ee71-3014-4fa8-b9ce-4748472f75d8.png">  
+<img width="1438" alt="desktopHomepage" src="https://user-images.githubusercontent.com/80644408/142063378-e509c0f6-3701-4d5b-8728-005d06c0fb43.png">  
+<img width="1440" alt="desktopNewtrip" src="https://user-images.githubusercontent.com/80644408/142063392-fb3fafc2-7d7e-446e-9942-8a62ceb2b4a0.png">  
 
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
+#### Tablet View (1st breakpoint):  
+<img width="757" alt="tabletHomepage" src="https://user-images.githubusercontent.com/80644408/142063586-69fef184-2cce-43bf-9276-dc6ba6010286.png">  
 
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
+#### Mobile View (2nd breakpoint):  
+<img width="387" alt="mobileHomepage" src="https://user-images.githubusercontent.com/80644408/142063445-a7aad750-2486-45c1-881c-444ef4e930a3.png">
 
-### HTML
+## Reflections  
+  I found this project to be quite challenging, which fostered space for a great deal of learning. I appreciated the absolute freedom to design the structure of data, the view-related and business-related code files, and the visual design/layout of the web application. This helped to solidify the importance of planning, communication , and organization in both scheduling-out and building a code base. I particularly enjoyed thinking about the user's experience and how to make it easy and informative.
 
-Add the HTML you need in the `index.html` file in the `./dist` directory. There is some boilerplate HTML that exists from the start that you can modify.
+## Challenges  
+  The most difficult part of this project was correctly implementing asynchronous functions using the fetchAPI, i.e. controlling the flow of data to the correct function at the correct time. I also found it difficult to decide what data to display, how to communicate it, and where it was located. I wanted each users experience to be unique, yet consistent. One special item that I created was a switch statement that gives different messages to the user depending upon their `travelerType`. In a future iteration, I would make this more dynamic by assigning an array to each type instead of a single string and then randomly choosing an element to display, so that the user experience is more varied/interesting.
 
-### CSS (SCSS/SASS)
-
-This project is setup to use SCSS/Sass files by default instead of your regular CSS files. Add your SCSS files in the `src/css` directory. There is a `base.scss` file already there, but you can change this file and add multiple SCSS files in this directory.
-
-This might sound weird, but you need to `import` your SCSS files in the JavaScript entry file (`scripts.js`) for the styles to be applied to your HTML. The example `base.scss` file has already been imported in the JavaScript entry file as an example.
-
-### Images
-
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`scripts.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
-
-## How to View Your Code in Action
-
-In the terminal, run:
-
-```bash
-npm start
-```
-
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
-
-```bash
-Project is running at http://localhost:8080/
-```
-
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
-
-## Webpack?
-
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
-
-## Deploying to GitHub Pages
-
-_If you are finished with the functionality and testing of your project_, then you can consider deploying your project to the web! This way anyone can play it without cloning down your repo.
-
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
-
-If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
+## Wins  
+  I am most proud of the following:  
+  - Writing modular code and wrapping functions in objects, in order to use dot notation to call them elsewhere. This helped me to easily navigate the code base.
+  - Learning and implementing two additional 3rd party libraries: Glide.js and Day.js.
+  - The responsive design for desktop, tablet, and mobile.
+  - Creating an accessible app. It is entirely tabbable and scored 100% on a lighthouse audit - see the unmerged branch: `feature/accessibilitiy-check`.
+  - Using Mocha and Chai to write fairly thorough tests. In a future iteration, I would include testing for sad paths.
+  - Error handling with APIs and possible user interactions.
