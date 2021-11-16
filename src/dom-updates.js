@@ -71,13 +71,13 @@ let domUpdates = {
         pendingColorUpdate = 'orange';
       } else {
         pendingColorUpdate = 'green';
-      };
+      }
       glideSlides.innerHTML += `
         <li class="glide__slide">
           <article class="trip-card">
             <div class="info-image-container">
               <div class="destination-status-date-container">
-                <h3>${trip.destination}</h3>
+                <h1>${trip.destination}</h1>
                 <div>
                   <p class="trip-messages">We hope it's full of ${userRepo.message}</p>
                   <p class="${pendingColorUpdate}">Trip Status: ${trip.status}</p>
@@ -109,6 +109,7 @@ let domUpdates = {
   },
 
   populateDestinationOptions(destinations) {
+    destinationInput.innerHTML = `<option value="">--Please choose an option--</option>`;
     destinations.forEach((place) => {
       destinationInput.innerHTML += `<option value="${place.id}">${place.destination}</option>`;
     });
@@ -132,8 +133,12 @@ let domUpdates = {
   displaySuccessMessageUponPost(duration, place) {
     formMessage.innerText = `Your ${duration} day trip to ${place} has been requested.`;
     formMessage.classList.remove('hidden');
-    setTimeout(() => {this.formReset()}, 3000);
-    setTimeout(() => {this.navigateToHome()}, 3000);
+    setTimeout(() => {
+      this.formReset();
+    }, 3000);
+    setTimeout(() => {
+      this.navigateToHome();
+    }, 3000);
   },
 
   formReset() {

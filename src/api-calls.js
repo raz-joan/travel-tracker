@@ -35,11 +35,11 @@ let apiCalls = {
         "Content-Type": "application/json"
       }
     })
-    .then(response => {
-      errorHandling.checkStatus(response);
-      return response.json();
-    })
-    .catch(err => errorHandling.connectionErr(err));
+      .then(response => {
+        errorHandling.checkStatus(response);
+        return response.json();
+      })
+      .catch(err => errorHandling.connectionErr(err));
     return postedData;
   }
 };
