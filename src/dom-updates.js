@@ -79,7 +79,7 @@ let domUpdates = {
               <div class="destination-status-date-container">
                 <h3>${trip.destination}</h3>
                 <div>
-                  <p>We hope it's full of ${userRepo.message}</p>
+                  <p class="trip-messages">We hope it's full of ${userRepo.message}</p>
                   <p class="${pendingColorUpdate}">Trip Status: ${trip.status}</p>
                 </div>
               </div>

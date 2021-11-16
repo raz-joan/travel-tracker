@@ -234,6 +234,7 @@ header {
 
       .button {
         @include button();
+        margin: 0 2%;
       }
     }
 
@@ -246,7 +247,7 @@ header {
 // the footer on every page view
 footer {
   @include flex(center, center);
-  height: 5vh;
+  height: 4vh;
   font-size: $x-small;
 }
 
@@ -264,29 +265,8 @@ footer {
   }
 }
 
-// the following are media queries for responsive design
-@media screen  and (min-width: 600px) and (max-width: 1000px) {
-  header {
-    nav {
-      @include flex(flex-end, flex-end, column);
-      .navigation {
-        width: 50%;
-      }
-    }
-  }
-  .log-in-section {
-    .log-in-form {
-      width: 50%;
-    }
-  }
-  .new-trip-form-section {
-    .new-trip-form {
-      width: 75%;
-    }
-  }
-}
-
-@media screen and (min-width: 375px) and (max-width: 599px) {
+// tablet responsive design
+@media screen and (min-width: 416px) and (max-width: 775px) {
   header {
     @include flex(space-evenly, center, column);
     .greeting-cost-container {
@@ -302,29 +282,43 @@ footer {
       }
     }
   }
+
   .home-page-section {
     .trip-card {
+      @include flex(center, center, column);
       .info-image-container {
         @include flex(center, center, column-reverse);
-        height: 55%;
+        height: 80%;
         .trip-image {
-          width: 20%;
+          max-width: 90%;
+          max-height: 75%;
+          margin: 3% 0;
         }
         .destination-status-date-container {
           @include flex(center, center, column);
+          width: 90%;
+          h3 {
+            font-size: $large;
+          }
         }
       }
       .message-cost-container {
         @include flex(space-evenly, center, column);
-        height: 45%;
+        height: 20%;
+        width: 90%;
+        p {
+          font-size: $small;
+        }
       }
     }
   }
+
   .log-in-section {
     .log-in-form {
-      width: 50%;
+      width: 60%;
     }
   }
+
   .new-trip-form-section {
     .form-banner {
       @include flex(center, center, column);
@@ -337,14 +331,15 @@ footer {
       .form-button-container {
         @include flex(space-evenly, flex-start, column);
         .button {
-          margin: 1% 0;
+          margin: 2% 0;
         }
       }
     }
   }
 }
 
-@media screen and (max-width: 374px) {
+// mobile responsive
+@media screen and (max-width: 415px) {
   header {
     @include flex(space-evenly, center, column);
     height: 33vh;
@@ -364,47 +359,69 @@ footer {
       }
     }
   }
+
   .home-page-section {
-    height: 63vh;
+    height: 65vh;
     .trip-card {
+      @include flex(center, center, column);
+      height: 100%;
       .info-image-container {
         @include flex(center, center, column-reverse);
+        height: 75%;
+        width: 90%;
+        .trip-image {
+          max-width: 90%;
+          max-height: 75%;
+          margin: 2% 0;
+        }
         .destination-status-date-container {
           @include flex(center, center, column);
+          width: 96%;
           h3 {
-            font-size: $large;
+            font-size: $medium;
             font-weight: bold;
           }
-
           p {
-            font-size: $medium;
+            font-size: $small;
+          }
+          .trip-messages {
+            display: none;
           }
         }
       }
       .message-cost-container {
         @include flex(flex-end, center, column);
-
+        height: 25%;
+        width: 90%;
         p {
-          font-size: $medium;
+          font-size: $small;
+          font-weight: normal;
+          margin: 2% 0;
         }
       }
     }
   }
+
   .log-in-section {
-    .log-in-banner {
-      @include flex(center, center, column);
-      .navigation-icon {
-        width: 20%;
-      }
+    h1 {
+      font-size: $large;
+      margin: 5% 0;
     }
     .log-in-form {
+      width: 80%;
+    }
+    .popup-response {
       width: 75%;
+      margin: 5% 0;
+      padding: 1%;
     }
   }
+
   .new-trip-form-section {
-    height: 63vh;
+    height: 65vh;
     .form-banner {
       @include flex(center, center, column);
+      width: 90%;
       img {
         width: 15%;
       }
@@ -421,5 +438,9 @@ footer {
         }
       }
     }
+  }
+
+  footer {
+    height: 2vh;
   }
 }
