@@ -40,12 +40,12 @@ logOutButton.addEventListener('click', domUpdates.redirectToLogInPage);
 // functions
 function fetchAllData() {
   return apiCalls.getAllData()
-  .then(data => {
-    let userObj = data[0].find(entry => entry.id === userID);
-    user = new UserRepository(userObj, data[1], data[2]);
-    setUpUserAccount(user);
-  });
-};
+    .then(data => {
+      let userObj = data[0].find(entry => entry.id === userID);
+      user = new UserRepository(userObj, data[1], data[2]);
+      setUpUserAccount(user);
+    });
+}
 
 function setUpUserAccount(userRepo) {
   userRepo.createTrips();
@@ -55,13 +55,17 @@ function setUpUserAccount(userRepo) {
   domUpdates.updateHeader(userRepo);
   domUpdates.populateCarousel(userRepo);
   domUpdates.populateDestinationOptions(userRepo.destinations);
-};
+}
 
 function calculateRequestedTripCost() {
   if (checkForValidInputs()) {
     let chosenDestination = parseInt(destinationInput.value);
-    let lodgingCost = user.destinations.find((entry) => {return entry.id === chosenDestination}).estimatedLodgingCostPerDay;
-    let flightCost = user.destinations.find((entry) => {return entry.id === chosenDestination}).estimatedFlightCostPerPerson;
+    let lodgingCost = user.destinations.find((entry) => {
+      return entry.id === chosenDestination;
+    }).estimatedLodgingCostPerDay;
+    let flightCost = user.destinations.find((entry) => {
+      return entry.id === chosenDestination;
+    }).estimatedFlightCostPerPerson;
     let tripCost = (parseInt(durationInput.value) * lodgingCost)
       + (parseInt(travelersInput.value) * flightCost);
     let agentFee = tripCost * 0.1;
@@ -70,7 +74,7 @@ function calculateRequestedTripCost() {
   } else {
     domUpdates.displayInvalidInputMessage();
   }
-};
+}
 
 function checkForValidInputs() {
   if (dateInput.value && durationInput.value && travelersInput.value && destinationInput.value) {
@@ -78,7 +82,7 @@ function checkForValidInputs() {
   } else {
     return false;
   }
-};
+}
 
 function postFormInputsToServer() {
   if (checkForValidInputs()) {
@@ -104,7 +108,7 @@ function postFormInputsToServer() {
   } else {
     domUpdates.displayInvalidInputMessage();
   }
-};
+}
 
 function verifyLogInInputs() {
   if (username.value && password.value) {
@@ -123,4 +127,4 @@ function verifyLogInInputs() {
   } else {
     domUpdates.showErrorForLogIn();
   }
-};
+}

@@ -71,7 +71,7 @@ let domUpdates = {
         pendingColorUpdate = 'orange';
       } else {
         pendingColorUpdate = 'green';
-      };
+      }
       glideSlides.innerHTML += `
         <li class="glide__slide">
           <article class="trip-card">
@@ -133,8 +133,12 @@ let domUpdates = {
   displaySuccessMessageUponPost(duration, place) {
     formMessage.innerText = `Your ${duration} day trip to ${place} has been requested.`;
     formMessage.classList.remove('hidden');
-    setTimeout(() => {this.formReset()}, 3000);
-    setTimeout(() => {this.navigateToHome()}, 3000);
+    setTimeout(() => {
+      this.formReset();
+    }, 3000);
+    setTimeout(() => {
+      this.navigateToHome();
+    }, 3000);
   },
 
   formReset() {
