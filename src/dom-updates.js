@@ -1,11 +1,26 @@
 import Glide, { Controls } from '@glidejs/glide/dist/glide.modular.esm';
 import dayjs from 'dayjs';
 
+// global
+let myGlideSlider;
+
 // query header elements:
 const welcomeBanner = document.querySelector('#welcomeBanner');
 const yearCostBanner = document.querySelector('#yearCostBanner');
 const allTimeCostBanner = document.querySelector('#allTimeCostBanner');
 const totalNumberBanner = document.querySelector('#totalNumberBanner');
+
+// query page sections
+const homePage = document.querySelector('#homePage');
+const formPage = document.querySelector('#formPage');
+
+// query form elements
+const dateInput = document.querySelector('#dateInput');
+const durationInput = document.querySelector('#durationInput');
+const travelersInput = document.querySelector('#travelersInput');
+const destinationInput = document.querySelector('#destinationInput');
+const formMessage = document.querySelector('#formMessage');
+const newTripForm = document.querySelector('#newTripForm');
 
 // query glide elements:
 const glideSlides = document.querySelector('#glideSlides');
@@ -39,6 +54,7 @@ let domUpdates = {
   },
 
   populateCarousel(userRepo) {
+    glideSlides.innerHTML = '';
     userRepo.updatedTrips.forEach((trip) => {
       let tripEstCost = formatter.format(trip.estCost);
       let tripAgentPercent = formatter.format(trip.agentPercent);
@@ -61,11 +77,52 @@ let domUpdates = {
           </article>
         </li>`;
     });
-    const glideObj = {
-      type: 'carousel'
-    };
-    new Glide('.glide', glideObj).mount({ Controls });
+    myGlideSlider = new Glide('.glide').mount({ Controls });
+  },
+
+  navigateToHome() {
+    homePage.classList.remove('hidden');
+    formPage.classList.add('hidden');
+    myGlideSlider.update();
+  },
+
+  navigateToForm() {
+    homePage.classList.add('hidden');
+    formPage.classList.remove('hidden');
+  },
+
+  populateDestinationOptions(destinations) {
+    destinations.forEach((place) => {
+      destinationInput.innerHTML += `<option value="${place.id}">${place.destination}</option>`;
+    });
+  },
+
+  displayEstimatedRequestedTripCost(cost) {
+    let newCost = formatter.format(cost);
+    formMessage.innerText = `For your current selections, the estimated trip cost, which includes the 10% agent fee, is ${newCost}. If your're ready for this adventure, then just click 'Submit Trip Request'!`;
+    formMessage.classList.remove('hidden');
+  },
+
+  hideMessage() {
+    formMessage.classList.add('hidden');
+  },
+
+  displayInvalidInputMessage() {
+    formMessage.innerText = `Please check that all inputs are filled in correctly.`;
+    formMessage.classList.remove('hidden');
+  },
+
+  displaySuccessMessageUponPost() {
+    formMessage.innerText = `Congrats on submitting your new trip request. We will now reroute you back to your homepage.`;
+    formMessage.classList.remove('hidden');
+    setTimeout(() => {this.formReset()}, 1500);
+    setTimeout(() => {this.navigateToHome()}, 2000);
+  },
+
+  formReset() {
+    newTripForm.reset();
+    this.hideMessage();
   }
 };
 
-export default domUpdates;
+export { domUpdates, dateInput, durationInput, travelersInput, destinationInput };

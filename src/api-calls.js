@@ -20,29 +20,28 @@ let apiCalls = {
   },
 
   getAllData() {
-    const gotUserData = this.getData('http://localhost:3001/api/v1/travelers', 'travelers');
-    const gotTripData = this.getData('http://localhost:3001/api/v1/trips', 'trips');
-    const gotDestinationData = this.getData('http://localhost:3001/api/v1/destinations', 'destinations');
-    const allPromise = Promise.all([gotUserData, gotTripData, gotDestinationData])
-      .then(data => data);
+    const fetchedUsers = this.getData('http://localhost:3001/api/v1/travelers', 'travelers');
+    const fetchedTrips = this.getData('http://localhost:3001/api/v1/trips', 'trips');
+    const fetchedDestinations = this.getData('http://localhost:3001/api/v1/destinations', 'destinations');
+    const allPromise = Promise.all([fetchedUsers, fetchedTrips, fetchedDestinations]);
     return allPromise;
-  }
+  },
 
-  // postData(url, newData) {
-  //   const postedData = fetch(url, {
-  //     method: "POST",
-  //     body: JSON.stringify(newData),
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     }
-  //   })
-  //   .then(response => {
-  //     checkStatus(response);
-  //     return response.json();
-  //   })
-  //   .catch(err => connectionErr(err));
-  //   return postedData;
-  // };
+  postData(url, newData) {
+    const postedData = fetch(url, {
+      method: "POST",
+      body: JSON.stringify(newData),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => {
+      errorHandling.checkStatus(response);
+      return response.json();
+    })
+    .catch(err => errorHandling.connectionErr(err));
+    return postedData;
+  }
 };
 
 export default apiCalls;
