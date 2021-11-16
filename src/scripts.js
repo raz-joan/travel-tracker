@@ -37,6 +37,10 @@ formSubmitButton.addEventListener('click', postFormInputsToServer);
 logInButton.addEventListener('click', verifyLogInInputs);
 logOutButton.addEventListener('click', domUpdates.redirectToLogInPage);
 
+// ~~~~~~~~~~~~~~Adding in to do Accessibility Check! ~~~~~~~~
+userID = 17;
+fetchAllData();
+
 // functions
 function fetchAllData() {
   return apiCalls.getAllData()

@@ -77,7 +77,7 @@ let domUpdates = {
           <article class="trip-card">
             <div class="info-image-container">
               <div class="destination-status-date-container">
-                <h3>${trip.destination}</h3>
+                <h1>${trip.destination}</h1>
                 <div>
                   <p class="trip-messages">We hope it's full of ${userRepo.message}</p>
                   <p class="${pendingColorUpdate}">Trip Status: ${trip.status}</p>

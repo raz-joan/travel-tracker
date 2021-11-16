@@ -143,7 +143,7 @@ header {
         height: 60%;
         width: 40%;
 
-        h3 {
+        h1 {
           font-size: $x-large;
           font-weight: bold;
         }
@@ -258,10 +258,10 @@ footer {
 
 .glide__arrow {
   background-color: $black;
-  opacity: 0.4;
+  opacity: 0.75;
   &:focus {
     background-color: $black;
-    opacity: 0.8;
+    opacity: 0.95;
   }
 }
 
@@ -297,7 +297,7 @@ footer {
         .destination-status-date-container {
           @include flex(center, center, column);
           width: 90%;
-          h3 {
+          h1 {
             font-size: $large;
           }
         }
@@ -377,7 +377,7 @@ footer {
         .destination-status-date-container {
           @include flex(center, center, column);
           width: 96%;
-          h3 {
+          h1 {
             font-size: $medium;
             font-weight: bold;
           }

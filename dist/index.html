@@ -14,7 +14,7 @@
       <p class="error-message" id="errorMessage"></p>
       <button id="errorButton">x</button>
     </article>
-    <header class="hidden" id="header">
+    <header class="" id="header">
       <div class="greeting-cost-container">
         <h1 class="welcome-banner">Hello<span id="welcomeBanner">'user's name'</span>!</h1>
         <h2 class="total-cost-banner">All-time trips: <span id="totalNumberBanner">'number'</span> & All-time cost: <span id="allTimeCostBanner">'$ amount'</span></h2>
@@ -50,7 +50,7 @@
       </form>
       <p class="popup-response hidden" id="logInResponse">Please check the input values for both the username and password.</p>
     </section>
-    <section class="home-page-section hidden" id="homePage">
+    <section class="home-page-section" id="homePage">
       <div class="glide">
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides" id="glideSlides">
@@ -63,27 +63,27 @@
         </div>
       </div>
     </section>
-    <section class="new-trip-form-section hidden" id="formPage">
+    <section class="new-trip-form-section" id="formPage">
       <div class="form-banner">
         <img src="./images/passport-icon.png" alt="passport icon">
         <h2>Tell us where you'd like to go next!</h2>
       </div>
       <form class="new-trip-form" id="newTripForm">
         <div>
-          <label for="date">Trip Start Date:</label>
-          <input type="date" name="date" class="light-input" id="dateInput" value="yyyy-MM-dd" min="2021-11-01" max="2024-12-31">
+          <label for="dateInput">Trip Start Date:</label>
+          <input type="date" name="dateInput" class="light-input" id="dateInput" value="yyyy-MM-dd" min="2021-11-01" max="2024-12-31">
         </div>
         <div>
-          <label for="duration">Length of Trip (days):</label>
-          <input type="number" name="duration" id="durationInput" min="1" max="30" placeholder="0" value="">
+          <label for="durationInput">Length of Trip (days):</label>
+          <input type="number" name="durationInput" id="durationInput" min="1" max="30" placeholder="0" value="">
         </div>
         <div>
-          <label for="travelers">Number of Travelers:</label>
-          <input type="number" name="travelers" id="travelersInput" min="1" max="10" placeholder="0" value="">
+          <label for="travelersInput">Number of Travelers:</label>
+          <input type="number" name="travelersInput" id="travelersInput" min="1" max="10" placeholder="0" value="">
         </div>
         <div>
-          <label for="destination-select">Choose a Destination:</label>
-          <select name="destinations" class="light-input" id="destinationInput">
+          <label for="destinationInput">Choose a Destination:</label>
+          <select name="destinationInput" class="light-input" id="destinationInput">
               <option value="">--Please choose an option--</option>
           </select>
         </div>
@@ -95,7 +95,7 @@
         <p class="popup-response hidden" id="formMessage">message</p>
       </form>
     </section>
-    <footer class="hidden" id="footer">
+    <footer class="" id="footer">
       <div class="note">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </footer>
     <script src="bundle.js"></script>
