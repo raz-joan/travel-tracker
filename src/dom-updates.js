@@ -109,6 +109,7 @@ let domUpdates = {
   },
 
   populateDestinationOptions(destinations) {
+    destinationInput.innerHTML = '';
     destinations.forEach((place) => {
       destinationInput.innerHTML += `<option value="${place.id}">${place.destination}</option>`;
     });
