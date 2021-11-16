@@ -23,8 +23,7 @@ let apiCalls = {
     const fetchedUsers = this.getData('http://localhost:3001/api/v1/travelers', 'travelers');
     const fetchedTrips = this.getData('http://localhost:3001/api/v1/trips', 'trips');
     const fetchedDestinations = this.getData('http://localhost:3001/api/v1/destinations', 'destinations');
-    const allPromise = Promise.all([fetchedUsers, fetchedTrips, fetchedDestinations])
-      .then(data => data);
+    const allPromise = Promise.all([fetchedUsers, fetchedTrips, fetchedDestinations]);
     return allPromise;
   },
 

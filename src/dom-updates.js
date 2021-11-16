@@ -1,6 +1,9 @@
 import Glide, { Controls } from '@glidejs/glide/dist/glide.modular.esm';
 import dayjs from 'dayjs';
 
+// global
+let myGlideSlider;
+
 // query header elements:
 const welcomeBanner = document.querySelector('#welcomeBanner');
 const yearCostBanner = document.querySelector('#yearCostBanner');
@@ -74,12 +77,13 @@ let domUpdates = {
           </article>
         </li>`;
     });
-    new Glide('.glide').mount({ Controls });
+    myGlideSlider = new Glide('.glide').mount({ Controls });
   },
 
   navigateToHome() {
     homePage.classList.remove('hidden');
     formPage.classList.add('hidden');
+    myGlideSlider.update();
   },
 
   navigateToForm() {
