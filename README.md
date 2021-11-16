@@ -3,7 +3,7 @@
 Authored by: [Joan Rasmussen](https://github.com/raz-joan)  
 Project Manager: [Cassandra Torske](https://github.com/CassandraGoose)  
 
-Want to see it in action? --> [Deployed Site]()
+Want to see it in action? --> [Deployed Site]((http://raz-joan.github.io/travel-tracker))
 
 ## Table Of Contents
 - [Overview](#overview)
