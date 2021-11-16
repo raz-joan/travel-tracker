@@ -5,16 +5,17 @@
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
 
+// basic for all pages
 body {
-  background-color: $off-white;
-  color: $grey;
+  background-color: $white;
+  color: $black;
   font-family: 'Nunito', sans-serif;
   font-size: $small;
 }
 // error modal for error handling with fetchAPIs
 .error-modal {
   position: fixed;
-  background-color: rgba(0, 0, 0, .7);
+  background-color: rgba(0, 0, 0, .5);
   width:100vw;
   height: 100vh;
   z-index: 2;
@@ -27,59 +28,36 @@ body {
   margin: 10px;
 }
 
-// the following is the opening page: the log in section
+// the landing page: the log in section
 .log-in-section {
   @include flex(center, center, column);
-  height: 96vh;
+  @include backgroundImage(center);
+  height: 100vh;
 
-  .log-in-banner {
-    @include flex(center, center);
-    padding-bottom: 2%;
-
-    h1 {
-      font-size: $x-large;
-      font-weight: bold;
-    }
-
-    .navigation-icon {
-      width: 10%;
-      padding: 1%;
-    }
+  h1 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: $x-large;
+    font-weight: bold;
+    margin: 3% 0;
   }
 
   .log-in-form {
     @include flex(space-evenly, center, column);
-    border: solid $grey 2px;
-    background-color: $off-white;
+    box-shadow: $standard-shadow;
+    background-color: $white;
     height: 25vh;
-    width: 30%;
-    color: $dark-blue;
+    width: 30vw;
     padding: 2%;
 
     input {
-      background-color: $white;
-      border-color: $dark-blue;
       border-style: solid;
       border-width: thin;
       cursor: pointer;
     }
 
-    input::placeholder {
-      color: $light-blue;
-    }
-
     .button {
-      border-color: $dark-blue;
-      background-color: $off-white;
-      color: $dark-blue;
-      font-weight: bold;
+      @include button();
       padding: 2% 4%;
-      margin: 0 5%;
-      cursor: pointer;
-      &:hover {
-        background-color: $dark-blue;
-        color: $off-white;
-      }
     }
   }
   .popup-response {
@@ -88,13 +66,12 @@ body {
   }
 }
 
-// the following is the header for the other two sections: main-page and new-trip
+// the header to be paired with both the main-page and new-trip
 header {
-  background-color: $grey;
-  color: $off-white;
+  background-color: $gold;
   @include flex(space-between, flex-end);
-  padding-bottom: 1%;
-  height: 20vh;
+  padding-bottom: 1.5%;
+  height: 25vh;
 
   .greeting-cost-container {
     @include flex(flex-end, flex-start, column);
@@ -102,6 +79,8 @@ header {
     padding-left: 3%;
 
     h1 {
+      color: $white;
+      font-family: 'Permanent Marker', cursive;
       font-size: $x-large;
       font-weight: bold;
       margin: 1% 0;
@@ -118,23 +97,15 @@ header {
     width: 45%;
 
     .navigation {
-      background-color: $off-white;
+      background-color: $white;
       @include flex(center, center);
       width: 33%;
 
       .navigation-button {
+        @include button();
         border: none;
-        background-color: $off-white;
-        color: $grey;
-        font-weight: bold;
         padding: 5% 5%;
         margin: 0;
-        cursor: pointer;
-
-        &:hover {
-          background-color: $grey;
-          color: $off-white;
-        }
       }
     }
 
@@ -146,23 +117,19 @@ header {
   }
 }
 
-// the following is the home page view (has the above header)
+// the home-page view (has the above header)
 .home-page-section {
-  @include flex(center, center, column);
-  height: 75vh;
+  @include flex(space-evenly, center, column);
+  height: 70vh;
   width: 100vw;
-
-  p {
-    font-size: $small;
-    margin: 0.5% 0;
-  }
 
   .trip-card {
     background-color: $white;
-    box-shadow: 2px 1px 6px $grey;
-    width: 80%;
+    border: solid black 1px;
+    box-shadow: $standard-shadow;
+    width: 60%;
     height: 65vh;
-    margin-left: 10%;
+    margin-left: 20%;
 
     .info-image-container {
       @include flex(space-around, center);
@@ -179,7 +146,9 @@ header {
         }
 
         p {
-          font-size: $medium;
+          font-size: $small;
+          color: $grey;
+          margin: 2% 0;
         }
       }
 
@@ -195,20 +164,22 @@ header {
       padding: 2% 3%;
 
       p {
-        font-size: $large;
+        font-size: $medium;
+        font-weight: bold;
       }
 
       .est-cost {
-        font-size: $medium;
+        font-size: $small;
+        color: $grey;
       }
     }
   }
 }
 
-// the following is the new trip form page view (has the above header)
+// new-trip form page view (has the above header)
 .new-trip-form-section {
-  @include flex(space-around, center, column);
-  height: 76vh;
+  @include flex(space-evenly, center, column);
+  height: 70vh;
 
   .form-banner {
     height: 15vh;
@@ -220,51 +191,38 @@ header {
 
     img {
       padding: 1%;
-      width: 10%;
+      width: 6%;
     }
   }
 
   .new-trip-form {
     @include flex(space-around, flex-start, column);
     background-color: $white;
-    box-shadow: 2px 1px 6px $grey;
+    box-shadow: $standard-shadow;
     height: 40vh;
     width: 50%;
     padding: 2%;
 
     input,
     select {
-      background-color: $white;
-      border-color: $dark-blue;
       border-style: solid;
       border-width: thin;
       cursor: pointer;
     }
 
     input::placeholder {
-      color: $dark-blue;
+      color: $grey;
     }
 
     .light-input {
-      color: $dark-blue;
+      color: $grey;
     }
 
     .form-button-container {
       @include flex(space-between, center, row);
 
       .button {
-        border-color: $dark-blue;
-        background-color: $off-white;
-        color: $dark-blue;
-        font-weight: bold;
-        padding: 3% 5%;
-        margin: 0 5%;
-        cursor: pointer;
-
-        &:hover {
-          background-color: $dark-blue;
-          color: $off-white;
-        }
+        @include button();
       }
     }
 
@@ -274,28 +232,25 @@ header {
   }
 }
 
-// the following is the footer on every page view
+// the footer on every page view
 footer {
   @include flex(center, center);
-  height: 4vh;
+  height: 5vh;
   font-size: $x-small;
 }
 
+// other
 .hidden {
   display: none;
 }
 
 .glide__arrow {
-  background-color: $grey;
-  opacity: 0.5;
+  background-color: $black;
+  opacity: 0.4;
   &:focus {
-    background-color: $dark-blue;
-    opacity: 0.9;
+    background-color: $black;
+    opacity: 0.8;
   }
-}
-
-.glide__slide {
-  width: 100%;
 }
 
 // the following are media queries for responsive design
