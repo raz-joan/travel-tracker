@@ -9,6 +9,7 @@ const welcomeBanner = document.querySelector('#welcomeBanner');
 const yearCostBanner = document.querySelector('#yearCostBanner');
 const allTimeCostBanner = document.querySelector('#allTimeCostBanner');
 const totalNumberBanner = document.querySelector('#totalNumberBanner');
+const header = document.querySelector('#header');
 
 // query page sections
 const homePage = document.querySelector('#homePage');
@@ -21,6 +22,11 @@ const travelersInput = document.querySelector('#travelersInput');
 const destinationInput = document.querySelector('#destinationInput');
 const formMessage = document.querySelector('#formMessage');
 const newTripForm = document.querySelector('#newTripForm');
+
+// query log in elements
+const logInResponse = document.querySelector('#logInResponse');
+const logInForm = document.querySelector('#logInForm');
+const logInPage = document.querySelector('#logInPage');
 
 // query glide elements:
 const glideSlides = document.querySelector('#glideSlides');
@@ -82,6 +88,7 @@ let domUpdates = {
 
   navigateToHome() {
     homePage.classList.remove('hidden');
+    header.classList.remove('hidden');
     formPage.classList.add('hidden');
     myGlideSlider.update();
   },
@@ -122,6 +129,24 @@ let domUpdates = {
   formReset() {
     newTripForm.reset();
     this.hideMessage();
+  },
+
+  showErrorForLogIn() {
+    logInResponse.classList.remove('hidden');
+    logInForm.reset();
+  },
+
+  hideLogIn() {
+    logInPage.classList.add('hidden');
+    logInResponse.classList.add('hidden');
+    logInForm.reset();
+  },
+
+  redirectToLogInPage() {
+    header.classList.add('hidden');
+    homePage.classList.add('hidden');
+    formPage.classList.add('hidden');
+    logInPage.classList.remove('hidden');
   }
 };
 

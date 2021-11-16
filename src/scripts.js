@@ -14,8 +14,7 @@ import UserRepository from './UserRepository';
 import { domUpdates, dateInput, durationInput, travelersInput, destinationInput } from './dom-updates';
 
 // globals
-// let userID = Math.floor(Math.random() * 50);
-let userID = 39;
+let userID;
 let user;
 
 // queries
@@ -25,14 +24,18 @@ const logOutButton = document.querySelector('#logOutButton');
 const costEstButton = document.querySelector('#costEstButton');
 const resetButton = document.querySelector('#resetButton');
 const formSubmitButton = document.querySelector('#formSubmitButton');
+const logInButton = document.querySelector('#logInButton');
+const username = document.querySelector('#username');
+const password = document.querySelector('#password');
 
 // event listeners
-window.addEventListener('load', fetchAllData);
 homeButton.addEventListener('click', domUpdates.navigateToHome);
 newTripButton.addEventListener('click', domUpdates.navigateToForm);
 costEstButton.addEventListener('click', calculateRequestedTripCost);
 resetButton.addEventListener('click', domUpdates.hideMessage);
 formSubmitButton.addEventListener('click', postFormInputsToServer);
+logInButton.addEventListener('click', verifyLogInInputs);
+logOutButton.addEventListener('click', domUpdates.redirectToLogInPage);
 
 // functions
 function fetchAllData() {
@@ -100,5 +103,24 @@ function postFormInputsToServer() {
       });
   } else {
     domUpdates.displayInvalidInputMessage();
+  }
+};
+
+function verifyLogInInputs() {
+  if (username.value && password.value) {
+    let usernameName = username.value.slice(0, 8);
+    let usernameNumber = parseInt(username.value.slice(8));
+    if (password.value === 'travel' && usernameName === 'traveler' && 0 < usernameNumber && usernameNumber <= 50) {
+      userID = usernameNumber;
+      fetchAllData()
+        .then(() => {
+          domUpdates.hideLogIn();
+          domUpdates.navigateToHome();
+        });
+    } else {
+      domUpdates.showErrorForLogIn();
+    }
+  } else {
+    domUpdates.showErrorForLogIn();
   }
 };
