@@ -47,19 +47,16 @@ Project Manager / Instructor: [Cassandra Torske](https://github.com/CassandraGoo
   This application consists of one HTML file, four SCSS files, an images folder, three test files, two class files, one view-related code file, and three business-related code files. ES6 import and export syntax was used to tell Webpack how to bundle the files. The icons were sourced on [flaticon.com](https://www.flaticon.com/). Attribution is noted in the footer of the site.
 
 ## Illustrations  
-#### Video:  
+#### Link to Video:  
 [![Travel Tracker Project](https://res.cloudinary.com/marcomontalbano/image/upload/v1639452241/video_to_markdown/images/youtube--TcSRuB9IKww-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=TcSRuB9IKww "Travel Tracker Project")
 
 #### Desktop Views:  
-<img width="1439" alt="desktopLogin" src="https://user-images.githubusercontent.com/80644408/142063528-af07ee71-3014-4fa8-b9ce-4748472f75d8.png">  
-<img width="1438" alt="desktopHomepage" src="https://user-images.githubusercontent.com/80644408/142063378-e509c0f6-3701-4d5b-8728-005d06c0fb43.png">  
-<img width="1440" alt="desktopNewtrip" src="https://user-images.githubusercontent.com/80644408/142063392-fb3fafc2-7d7e-446e-9942-8a62ceb2b4a0.png">  
+<img width="750" alt="desktopLogin" src="https://user-images.githubusercontent.com/80644408/142063528-af07ee71-3014-4fa8-b9ce-4748472f75d8.png">  
+<img width="750" alt="desktopHomepage" src="https://user-images.githubusercontent.com/80644408/142063378-e509c0f6-3701-4d5b-8728-005d06c0fb43.png">  
+<img width="750" alt="desktopNewtrip" src="https://user-images.githubusercontent.com/80644408/142063392-fb3fafc2-7d7e-446e-9942-8a62ceb2b4a0.png">  
 
-#### Tablet View (1st breakpoint):  
-<img width="757" alt="tabletHomepage" src="https://user-images.githubusercontent.com/80644408/142063586-69fef184-2cce-43bf-9276-dc6ba6010286.png">  
-
-#### Mobile View (2nd breakpoint):  
-<img width="387" alt="mobileHomepage" src="https://user-images.githubusercontent.com/80644408/142063445-a7aad750-2486-45c1-881c-444ef4e930a3.png">
+#### Responsive Views (2 breakpoints):  
+<img width="500" alt="tabletHomepage" src="https://user-images.githubusercontent.com/80644408/142063586-69fef184-2cce-43bf-9276-dc6ba6010286.png"><img width="300" alt="mobileHomepage" src="https://user-images.githubusercontent.com/80644408/142063445-a7aad750-2486-45c1-881c-444ef4e930a3.png">
 
 ## Reflections  
   I found this project to be quite challenging, which fostered space for a great deal of learning. I appreciated the absolute freedom to design the structure of data, the view-related and business-related code files, and the visual design/layout of the web application. This helped to solidify the importance of planning, communication , and organization in both scheduling-out and building a code base. I particularly enjoyed thinking about the user's experience and how to make it easy and informative.
