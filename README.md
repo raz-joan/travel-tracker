@@ -1,9 +1,7 @@
-# Mod 2: Final Project: Travel Tracker  
+# Mod 2: Final Solo Project: Travel Tracker  
 
 Authored by: [Joan Rasmussen](https://github.com/raz-joan)  
-Project Manager: [Cassandra Torske](https://github.com/CassandraGoose)  
-
-Want to see it in action? --> [Deployed Site]((http://raz-joan.github.io/travel-tracker))
+Project Manager / Instructor: [Cassandra Torske](https://github.com/CassandraGoose)  
 
 ## Table Of Contents
 - [Overview](#overview)
@@ -49,6 +47,9 @@ Want to see it in action? --> [Deployed Site]((http://raz-joan.github.io/travel-
   This application consists of one HTML file, four SCSS files, an images folder, three test files, two class files, one view-related code file, and three business-related code files. ES6 import and export syntax was used to tell Webpack how to bundle the files. The icons were sourced on [flaticon.com](https://www.flaticon.com/). Attribution is noted in the footer of the site.
 
 ## Illustrations  
+#### Video:  
+[![Travel Tracker Project](https://res.cloudinary.com/marcomontalbano/image/upload/v1639452241/video_to_markdown/images/youtube--TcSRuB9IKww-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=TcSRuB9IKww "Travel Tracker Project")
+
 #### Desktop Views:  
 <img width="1439" alt="desktopLogin" src="https://user-images.githubusercontent.com/80644408/142063528-af07ee71-3014-4fa8-b9ce-4748472f75d8.png">  
 <img width="1438" alt="desktopHomepage" src="https://user-images.githubusercontent.com/80644408/142063378-e509c0f6-3701-4d5b-8728-005d06c0fb43.png">  
